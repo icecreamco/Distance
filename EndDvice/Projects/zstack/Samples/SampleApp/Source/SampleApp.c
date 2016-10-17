@@ -430,7 +430,7 @@ void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
         p1_3 -> 4
         p0_4 -> 5
         p0_5 -> 6
-        p1_6 -> 7
+        p0_6 -> 7
         p1_7 -> 8
         */
         quality = pkt->LinkQuality;
@@ -439,61 +439,47 @@ void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
         message[1] = quality;
         HalUARTWrite(0, message, 2);
         quality=quality/32+1;
-          P0DIR|=0X33;
-          P1DIR|=0XCC;
+          P0DIR|=0X73;
+          P1DIR|=0X8C;
+          P0 &= 0x8c;
+          P1 &= 0x73;
           switch(quality)
           {
-            case 1:
-              P0 &= 0xcc;
-              P0 |= 0x01;
-              P1 &= 0x33;
+            case 1:            
+              P0 |= 0x01;            
               P1 |= 0x00;
               break;
             case 2:
-              P0 &= 0xcc;
               P0 |= 0x03;
-              P1 &= 0x33;
               P1 |= 0x00;
               break;
             case 3:
-              P0 &= 0xcc;
               P0 |= 0x03;
-              P1 &= 0x33;
               P1 |= 0x04;
               break;
             case 4:
-              P0 &= 0xcc;
               P0 |= 0x03;
-              P1 &= 0x33;
               P1 |= 0x0c;
               break;
             case 5:
-              P0 &= 0xcc;
               P0 |= 0x13;
-              P1 &= 0x33;
               P1 |= 0x0c;
               break;
             case 6:
-              P0 &= 0xcc;
               P0 |= 0x33;
-              P1 &= 0x33;
               P1 |= 0x0c;
               break;
             case 7:
-              P0 &= 0xcc;
-              P0 |= 0x33;
-              P1 &= 0x33;
-              P1 |= 0x4c;
+              P0 |= 0x73;
+              P1 |= 0x0c;
               break;
             case 8:
-              P0 &= 0xcc;
-              P0 |= 0x33;
-              P1 &= 0x33;
-              P1 |= 0xcc;
+              P0 |= 0x73;
+              P1 |= 0x8c;
               break;
             default:
-              P1=0X00;
-              P0=0X00;
+              P0 |= 0x00;
+              P1 |= 0x00;
               break;
           }
           SampleApp_Send_P2P_Message(pkt->LinkQuality);

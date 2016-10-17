@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                            /
-// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        17/Oct/2016  22:02:45 /
+// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        17/Oct/2016  22:30:02 /
 // Copyright 2004-2011 IAR Systems AB.                                        /
 //                                                                            /
 //    Core               =  plain                                             /
@@ -1041,9 +1041,9 @@ SampleApp_Init:
         MOV     R1,A
         LCALL   ??MT_UartRegisterTaskID?relay
 //  197   uint8 power = TXPOWER;
-        LCALL   ?Subroutine3 & 0xFFFF
+        LCALL   ?Subroutine2 & 0xFFFF
 //  198   HalUARTWrite(0, &power, 1);
-??CrossCallReturnLabel_10:
+??CrossCallReturnLabel_4:
         ; Setup parameters for call to function HalUARTWrite
         MOV     R4,#0x1
         MOV     R5,#0x0
@@ -1229,10 +1229,10 @@ SampleApp_Init:
         CFI EndBlock cfiBlock1
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-?Subroutine3:
+?Subroutine2:
         CFI Block cfiCond2 Using cfiCommon0
         CFI NoFunction
-        CFI Conditional ??CrossCallReturnLabel_10
+        CFI Conditional ??CrossCallReturnLabel_4
         CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
         CFI VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
         CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
@@ -1248,7 +1248,7 @@ SampleApp_Init:
         CFI CFA_XSP16 add(XSP16, 12)
         CFI Block cfiCond3 Using cfiCommon0
         CFI (cfiCond3) NoFunction
-        CFI (cfiCond3) Conditional ??CrossCallReturnLabel_11
+        CFI (cfiCond3) Conditional ??CrossCallReturnLabel_5
         CFI (cfiCond3) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
         CFI (cfiCond3) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
         CFI (cfiCond3) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
@@ -1269,14 +1269,14 @@ SampleApp_Init:
         CFI EndBlock cfiCond2
         CFI EndBlock cfiCond3
         CFI EndBlock cfiPicker4
-        REQUIRE ??Subroutine7_0
-        ; // Fall through to label ??Subroutine7_0
+        REQUIRE ??Subroutine5_0
+        ; // Fall through to label ??Subroutine5_0
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-??Subroutine7_0:
+??Subroutine5_0:
         CFI Block cfiCond5 Using cfiCommon0
         CFI NoFunction
-        CFI Conditional ??CrossCallReturnLabel_9
+        CFI Conditional ??CrossCallReturnLabel_3
         CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
         CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
         CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
@@ -1291,7 +1291,7 @@ SampleApp_Init:
         CFI CFA_XSP16 add(XSP16, 13)
         CFI Block cfiCond6 Using cfiCommon0
         CFI (cfiCond6) NoFunction
-        CFI (cfiCond6) Conditional ??CrossCallReturnLabel_10
+        CFI (cfiCond6) Conditional ??CrossCallReturnLabel_4
         CFI (cfiCond6) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
         CFI (cfiCond6) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
         CFI (cfiCond6) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
@@ -1307,7 +1307,7 @@ SampleApp_Init:
         CFI (cfiCond6) CFA_XSP16 add(XSP16, 12)
         CFI Block cfiCond7 Using cfiCommon0
         CFI (cfiCond7) NoFunction
-        CFI (cfiCond7) Conditional ??CrossCallReturnLabel_11
+        CFI (cfiCond7) Conditional ??CrossCallReturnLabel_5
         CFI (cfiCond7) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
         CFI (cfiCond7) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
         CFI (cfiCond7) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
@@ -1804,7 +1804,7 @@ SampleApp_HandleKeys:
 //  392   }
 //  393 }
 ??SampleApp_HandleKeys_1:
-        LJMP    ??Subroutine9_0 & 0xFFFF
+        LJMP    ??Subroutine7_0 & 0xFFFF
         CFI EndBlock cfiBlock10
 //  394 
 //  395 /*********************************************************************
@@ -1968,8 +1968,8 @@ SampleApp_MessageMSGCB:
 //  422       osal_memcpy(data,pkt->cmd.Data,pkt->cmd.DataLength);
 ??SampleApp_MessageMSGCB_2:
         ; Setup parameters for call to function osal_memcpy
-        LCALL   ?Subroutine4 & 0xFFFF
-??CrossCallReturnLabel_15:
+        LCALL   ?Subroutine3 & 0xFFFF
+??CrossCallReturnLabel_9:
         MOV     ?V0 + 0,A
         INC     DPTR
         MOVX    A,@DPTR
@@ -1980,8 +1980,8 @@ SampleApp_MessageMSGCB:
         CFI CFA_XSP16 add(XSP16, 20)
         MOV     A,R6
         ADD     A,#0x20
-        LCALL   ??Subroutine8_0 & 0xFFFF
-??CrossCallReturnLabel_12:
+        LCALL   ??Subroutine6_0 & 0xFFFF
+??CrossCallReturnLabel_6:
         MOV     R4,A
         INC     DPTR
         MOVX    A,@DPTR
@@ -2028,20 +2028,20 @@ SampleApp_MessageMSGCB:
 //  430         p1_3 -> 4
 //  431         p0_4 -> 5
 //  432         p0_5 -> 6
-//  433         p1_6 -> 7
+//  433         p0_6 -> 7
 //  434         p1_7 -> 8
 //  435         */
 //  436         quality = pkt->LinkQuality;
         MOV     A,R6
         ADD     A,#0x16
-        LCALL   ??Subroutine8_0 & 0xFFFF
-??CrossCallReturnLabel_13:
+        LCALL   ??Subroutine6_0 & 0xFFFF
+??CrossCallReturnLabel_7:
         MOV     ?V0 + 0,A
 //  437         uint8 message[2];
 //  438         message[0] = TXPOWER;
-        LCALL   ?Subroutine3 & 0xFFFF
+        LCALL   ?Subroutine2 & 0xFFFF
 //  439         message[1] = quality;
-??CrossCallReturnLabel_11:
+??CrossCallReturnLabel_5:
         MOV     A,#0x1
         LCALL   ?XSTACK_DISP0_8
         MOV     A,?V0 + 0
@@ -2057,11 +2057,15 @@ SampleApp_MessageMSGCB:
         MOV     R1,#0x0
         LCALL   ??HalUARTWrite?relay
 //  441         quality=quality/32+1;
-//  442           P0DIR|=0X33;
-        ORL     0xfd,#0x33
-//  443           P1DIR|=0XCC;
-        ORL     0xfe,#0xcc
-//  444           switch(quality)
+//  442           P0DIR|=0X73;
+        ORL     0xfd,#0x73
+//  443           P1DIR|=0X8C;
+        ORL     0xfe,#0x8c
+//  444           P0 &= 0x8c;
+        ANL     0x80,#0x8c
+//  445           P1 &= 0x73;
+        ANL     0x90,#0x73
+//  446           switch(quality)
         MOV     A,?V0 + 0
         SWAP    A
         RRC     A
@@ -2084,124 +2088,95 @@ SampleApp_MessageMSGCB:
         DEC     A
         JZ      ??SampleApp_MessageMSGCB_10
         SJMP    ??SampleApp_MessageMSGCB_11
-//  445           {
-//  446             case 1:
-//  447               P0 &= 0xcc;
+//  447           {
+//  448             case 1:            
+//  449               P0 |= 0x01;            
 ??SampleApp_MessageMSGCB_3:
-        ANL     0x80,#0xcc
-//  448               P0 |= 0x01;
         SETB    0x80.0
-//  449               P1 &= 0x33;
-??SampleApp_MessageMSGCB_12:
-        ANL     0x90,#0x33
 //  450               P1 |= 0x00;
-        MOV     0x90,0x90
-//  451               break;
-        SJMP    ??SampleApp_MessageMSGCB_13
-//  452             case 2:
-//  453               P0 &= 0xcc;
-??SampleApp_MessageMSGCB_4:
-        LCALL   ?Subroutine6 & 0xFFFF
-//  454               P0 |= 0x03;
-//  455               P1 &= 0x33;
-??CrossCallReturnLabel_6:
         SJMP    ??SampleApp_MessageMSGCB_12
-//  456               P1 |= 0x00;
-//  457               break;
-//  458             case 3:
-//  459               P0 &= 0xcc;
+//  451               break;
+//  452             case 2:
+//  453               P0 |= 0x03;
+??SampleApp_MessageMSGCB_4:
+        ORL     0x80,#0x3
+//  454               P1 |= 0x00;
+        SJMP    ??SampleApp_MessageMSGCB_12
+//  455               break;
+//  456             case 3:
+//  457               P0 |= 0x03;
 ??SampleApp_MessageMSGCB_5:
-        LCALL   ?Subroutine6 & 0xFFFF
-//  460               P0 |= 0x03;
-//  461               P1 &= 0x33;
-??CrossCallReturnLabel_7:
-        ANL     0x90,#0x33
-//  462               P1 |= 0x04;
+        ORL     0x80,#0x3
+//  458               P1 |= 0x04;
         SETB    0x90.2
+//  459               break;
+        SJMP    ??SampleApp_MessageMSGCB_13
+//  460             case 4:
+//  461               P0 |= 0x03;
+??SampleApp_MessageMSGCB_6:
+        ORL     0x80,#0x3
+//  462               P1 |= 0x0c;
+??SampleApp_MessageMSGCB_14:
+        ORL     0x90,#0xc
 //  463               break;
         SJMP    ??SampleApp_MessageMSGCB_13
-//  464             case 4:
-//  465               P0 &= 0xcc;
-??SampleApp_MessageMSGCB_6:
-        LCALL   ?Subroutine6 & 0xFFFF
-//  466               P0 |= 0x03;
-//  467               P1 &= 0x33;
-??CrossCallReturnLabel_8:
-        ANL     0x90,#0x33
-//  468               P1 |= 0x0c;
-        ORL     0x90,#0xc
-//  469               break;
-        SJMP    ??SampleApp_MessageMSGCB_13
-//  470             case 5:
-//  471               P0 &= 0xcc;
+//  464             case 5:
+//  465               P0 |= 0x13;
 ??SampleApp_MessageMSGCB_7:
-        ANL     0x80,#0xcc
-//  472               P0 |= 0x13;
         ORL     0x80,#0x13
-//  473               P1 &= 0x33;
-        SJMP    ??CrossCallReturnLabel_8
-//  474               P1 |= 0x0c;
-//  475               break;
-//  476             case 6:
-//  477               P0 &= 0xcc;
+//  466               P1 |= 0x0c;
+        SJMP    ??SampleApp_MessageMSGCB_14
+//  467               break;
+//  468             case 6:
+//  469               P0 |= 0x33;
 ??SampleApp_MessageMSGCB_8:
-        LCALL   ?Subroutine2 & 0xFFFF
-//  478               P0 |= 0x33;
-//  479               P1 &= 0x33;
-//  480               P1 |= 0x0c;
-??CrossCallReturnLabel_0:
-        ORL     0x90,#0xc
-//  481               break;
-        SJMP    ??SampleApp_MessageMSGCB_13
-//  482             case 7:
-//  483               P0 &= 0xcc;
+        ORL     0x80,#0x33
+//  470               P1 |= 0x0c;
+        SJMP    ??SampleApp_MessageMSGCB_14
+//  471               break;
+//  472             case 7:
+//  473               P0 |= 0x73;
 ??SampleApp_MessageMSGCB_9:
-        LCALL   ?Subroutine2 & 0xFFFF
-//  484               P0 |= 0x33;
-//  485               P1 &= 0x33;
-//  486               P1 |= 0x4c;
-??CrossCallReturnLabel_1:
-        ORL     0x90,#0x4c
-//  487               break;
-        SJMP    ??SampleApp_MessageMSGCB_13
-//  488             case 8:
-//  489               P0 &= 0xcc;
+        ORL     0x80,#0x73
+//  474               P1 |= 0x0c;
+        SJMP    ??SampleApp_MessageMSGCB_14
+//  475               break;
+//  476             case 8:
+//  477               P0 |= 0x73;
 ??SampleApp_MessageMSGCB_10:
-        LCALL   ?Subroutine2 & 0xFFFF
-//  490               P0 |= 0x33;
-//  491               P1 &= 0x33;
-//  492               P1 |= 0xcc;
-??CrossCallReturnLabel_2:
-        ORL     0x90,#0xcc
-//  493               break;
+        ORL     0x80,#0x73
+//  478               P1 |= 0x8c;
+        ORL     0x90,#0x8c
+//  479               break;
         SJMP    ??SampleApp_MessageMSGCB_13
-//  494             default:
-//  495               P1=0X00;
+//  480             default:
+//  481               P0 |= 0x00;
 ??SampleApp_MessageMSGCB_11:
-        MOV     0x90,#0x0
-//  496               P0=0X00;
-        MOV     0x80,#0x0
-//  497               break;
-//  498           }
-//  499           SampleApp_Send_P2P_Message(pkt->LinkQuality);
+        MOV     0x80,0x80
+//  482               P1 |= 0x00;
+??SampleApp_MessageMSGCB_12:
+        MOV     0x90,0x90
+//  483               break;
+//  484           }
+//  485           SampleApp_Send_P2P_Message(pkt->LinkQuality);
 ??SampleApp_MessageMSGCB_13:
         ; Setup parameters for call to function SampleApp_Send_P2P_Message
         MOV     A,R6
         ADD     A,#0x16
-        LCALL   ??Subroutine8_0 & 0xFFFF
-//  500       }
-??CrossCallReturnLabel_14:
+        LCALL   ??Subroutine6_0 & 0xFFFF
+//  486       }
+??CrossCallReturnLabel_8:
         MOV     R1,A
         LCALL   ??SampleApp_Send_P2P_Message?relay
         SJMP    ??SampleApp_MessageMSGCB_0
-//  501       break;  
-//  502       
-//  503     case SAMPLEAPP_FLASH_CLUSTERID:
-//  504       flashTime = BUILD_UINT16(pkt->cmd.Data[1], pkt->cmd.Data[2] );
-//  505       HalLedBlink( HAL_LED_4, 4, 50, (flashTime / 4) );
+//  487       break;  
+//  488       
+//  489     case SAMPLEAPP_FLASH_CLUSTERID:
+//  490       flashTime = BUILD_UINT16(pkt->cmd.Data[1], pkt->cmd.Data[2] );
+//  491       HalLedBlink( HAL_LED_4, 4, 50, (flashTime / 4) );
 ??SampleApp_MessageMSGCB_1:
-        LCALL   ?Subroutine4 & 0xFFFF
-??CrossCallReturnLabel_16:
+        LCALL   ?Subroutine3 & 0xFFFF
+??CrossCallReturnLabel_10:
         MOV     R0,A
         INC     DPTR
         MOVX    A,@DPTR
@@ -2233,9 +2208,9 @@ SampleApp_MessageMSGCB:
         MOV     R2,#0x4
         MOV     R1,#0x8
         LCALL   ??HalLedBlink?relay
-//  506       break;
-//  507   }
-//  508 }
+//  492       break;
+//  493   }
+//  494 }
 ??SampleApp_MessageMSGCB_0:
         MOV     A,#0x6
         LJMP    ?Subroutine0 & 0xFFFF
@@ -2246,10 +2221,10 @@ SampleApp_MessageMSGCB:
         REQUIRE _A_P1
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-?Subroutine6:
+?Subroutine3:
         CFI Block cfiCond12 Using cfiCommon0
         CFI NoFunction
-        CFI Conditional ??CrossCallReturnLabel_6
+        CFI Conditional ??CrossCallReturnLabel_9
         CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
         CFI VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
         CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
@@ -2265,7 +2240,7 @@ SampleApp_MessageMSGCB:
         CFI CFA_XSP16 add(XSP16, 17)
         CFI Block cfiCond13 Using cfiCommon0
         CFI (cfiCond13) NoFunction
-        CFI (cfiCond13) Conditional ??CrossCallReturnLabel_7
+        CFI (cfiCond13) Conditional ??CrossCallReturnLabel_10
         CFI (cfiCond13) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
         CFI (cfiCond13) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
         CFI (cfiCond13) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
@@ -2279,83 +2254,22 @@ SampleApp_MessageMSGCB:
         CFI (cfiCond13) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
         CFI (cfiCond13) CFA_SP SP+0
         CFI (cfiCond13) CFA_XSP16 add(XSP16, 17)
-        CFI Block cfiCond14 Using cfiCommon0
-        CFI (cfiCond14) NoFunction
-        CFI (cfiCond14) Conditional ??CrossCallReturnLabel_8
-        CFI (cfiCond14) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-        CFI (cfiCond14) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
-        CFI (cfiCond14) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-        CFI (cfiCond14) V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-        CFI (cfiCond14) V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-        CFI (cfiCond14) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-        CFI (cfiCond14) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-        CFI (cfiCond14) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-        CFI (cfiCond14) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-        CFI (cfiCond14) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-        CFI (cfiCond14) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-        CFI (cfiCond14) CFA_SP SP+0
-        CFI (cfiCond14) CFA_XSP16 add(XSP16, 17)
-        CFI Block cfiPicker15 Using cfiCommon1
-        CFI (cfiPicker15) NoFunction
-        CFI (cfiPicker15) Picker
-        ANL     0x80,#0xcc
-        ORL     0x80,#0x3
-        RET
-        CFI EndBlock cfiCond12
-        CFI EndBlock cfiCond13
-        CFI EndBlock cfiCond14
-        CFI EndBlock cfiPicker15
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
-?Subroutine4:
-        CFI Block cfiCond16 Using cfiCommon0
-        CFI NoFunction
-        CFI Conditional ??CrossCallReturnLabel_15
-        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
-        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-        CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-        CFI CFA_SP SP+0
-        CFI CFA_XSP16 add(XSP16, 17)
-        CFI Block cfiCond17 Using cfiCommon0
-        CFI (cfiCond17) NoFunction
-        CFI (cfiCond17) Conditional ??CrossCallReturnLabel_16
-        CFI (cfiCond17) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-        CFI (cfiCond17) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
-        CFI (cfiCond17) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-        CFI (cfiCond17) V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-        CFI (cfiCond17) V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-        CFI (cfiCond17) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-        CFI (cfiCond17) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-        CFI (cfiCond17) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-        CFI (cfiCond17) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-        CFI (cfiCond17) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-        CFI (cfiCond17) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-        CFI (cfiCond17) CFA_SP SP+0
-        CFI (cfiCond17) CFA_XSP16 add(XSP16, 17)
-        CFI Block cfiPicker18 Using cfiCommon1
-        CFI (cfiPicker18) NoFunction
-        CFI (cfiPicker18) Picker
+        CFI Block cfiPicker14 Using cfiCommon1
+        CFI (cfiPicker14) NoFunction
+        CFI (cfiPicker14) Picker
         MOV     A,R6
         ADD     A,#0x22
-        CFI EndBlock cfiCond16
-        CFI EndBlock cfiCond17
-        CFI EndBlock cfiPicker18
-        REQUIRE ??Subroutine8_0
-        ; // Fall through to label ??Subroutine8_0
+        CFI EndBlock cfiCond12
+        CFI EndBlock cfiCond13
+        CFI EndBlock cfiPicker14
+        REQUIRE ??Subroutine6_0
+        ; // Fall through to label ??Subroutine6_0
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-??Subroutine8_0:
-        CFI Block cfiCond19 Using cfiCommon0
+??Subroutine6_0:
+        CFI Block cfiCond15 Using cfiCommon0
         CFI NoFunction
-        CFI Conditional ??CrossCallReturnLabel_12
+        CFI Conditional ??CrossCallReturnLabel_6
         CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
         CFI VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
         CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
@@ -2369,165 +2283,103 @@ SampleApp_MessageMSGCB:
         CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
         CFI CFA_SP SP+0
         CFI CFA_XSP16 add(XSP16, 20)
-        CFI Block cfiCond20 Using cfiCommon0
-        CFI (cfiCond20) NoFunction
-        CFI (cfiCond20) Conditional ??CrossCallReturnLabel_13
-        CFI (cfiCond20) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-        CFI (cfiCond20) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
-        CFI (cfiCond20) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-        CFI (cfiCond20) V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-        CFI (cfiCond20) V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-        CFI (cfiCond20) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-        CFI (cfiCond20) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-        CFI (cfiCond20) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-        CFI (cfiCond20) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-        CFI (cfiCond20) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-        CFI (cfiCond20) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-        CFI (cfiCond20) CFA_SP SP+0
-        CFI (cfiCond20) CFA_XSP16 add(XSP16, 17)
-        CFI Block cfiCond21 Using cfiCommon0
-        CFI (cfiCond21) NoFunction
-        CFI (cfiCond21) Conditional ??CrossCallReturnLabel_14
-        CFI (cfiCond21) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-        CFI (cfiCond21) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
-        CFI (cfiCond21) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-        CFI (cfiCond21) V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-        CFI (cfiCond21) V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-        CFI (cfiCond21) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-        CFI (cfiCond21) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-        CFI (cfiCond21) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-        CFI (cfiCond21) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-        CFI (cfiCond21) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-        CFI (cfiCond21) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-        CFI (cfiCond21) CFA_SP SP+0
-        CFI (cfiCond21) CFA_XSP16 add(XSP16, 17)
-        CFI Block cfiCond22 Using cfiCommon0
-        CFI (cfiCond22) NoFunction
-        CFI (cfiCond22) Conditional ??CrossCallReturnLabel_15
-        CFI (cfiCond22) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-        CFI (cfiCond22) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
-        CFI (cfiCond22) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-        CFI (cfiCond22) V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-        CFI (cfiCond22) V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-        CFI (cfiCond22) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-        CFI (cfiCond22) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-        CFI (cfiCond22) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-        CFI (cfiCond22) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-        CFI (cfiCond22) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-        CFI (cfiCond22) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-        CFI (cfiCond22) CFA_SP SP+0
-        CFI (cfiCond22) CFA_XSP16 add(XSP16, 17)
-        CFI Block cfiCond23 Using cfiCommon0
-        CFI (cfiCond23) NoFunction
-        CFI (cfiCond23) Conditional ??CrossCallReturnLabel_16
-        CFI (cfiCond23) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-        CFI (cfiCond23) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
-        CFI (cfiCond23) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-        CFI (cfiCond23) V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-        CFI (cfiCond23) V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-        CFI (cfiCond23) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-        CFI (cfiCond23) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-        CFI (cfiCond23) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-        CFI (cfiCond23) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-        CFI (cfiCond23) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-        CFI (cfiCond23) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-        CFI (cfiCond23) CFA_SP SP+0
-        CFI (cfiCond23) CFA_XSP16 add(XSP16, 17)
-        CFI Block cfiPicker24 Using cfiCommon1
-        CFI (cfiPicker24) NoFunction
-        CFI (cfiPicker24) Picker
+        CFI Block cfiCond16 Using cfiCommon0
+        CFI (cfiCond16) NoFunction
+        CFI (cfiCond16) Conditional ??CrossCallReturnLabel_7
+        CFI (cfiCond16) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI (cfiCond16) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI (cfiCond16) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI (cfiCond16) V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI (cfiCond16) V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI (cfiCond16) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI (cfiCond16) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI (cfiCond16) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI (cfiCond16) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI (cfiCond16) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI (cfiCond16) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI (cfiCond16) CFA_SP SP+0
+        CFI (cfiCond16) CFA_XSP16 add(XSP16, 17)
+        CFI Block cfiCond17 Using cfiCommon0
+        CFI (cfiCond17) NoFunction
+        CFI (cfiCond17) Conditional ??CrossCallReturnLabel_8
+        CFI (cfiCond17) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI (cfiCond17) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI (cfiCond17) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI (cfiCond17) V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI (cfiCond17) V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI (cfiCond17) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI (cfiCond17) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI (cfiCond17) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI (cfiCond17) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI (cfiCond17) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI (cfiCond17) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI (cfiCond17) CFA_SP SP+0
+        CFI (cfiCond17) CFA_XSP16 add(XSP16, 17)
+        CFI Block cfiCond18 Using cfiCommon0
+        CFI (cfiCond18) NoFunction
+        CFI (cfiCond18) Conditional ??CrossCallReturnLabel_9
+        CFI (cfiCond18) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI (cfiCond18) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI (cfiCond18) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI (cfiCond18) V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI (cfiCond18) V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI (cfiCond18) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI (cfiCond18) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI (cfiCond18) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI (cfiCond18) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI (cfiCond18) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI (cfiCond18) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI (cfiCond18) CFA_SP SP+0
+        CFI (cfiCond18) CFA_XSP16 add(XSP16, 17)
+        CFI Block cfiCond19 Using cfiCommon0
+        CFI (cfiCond19) NoFunction
+        CFI (cfiCond19) Conditional ??CrossCallReturnLabel_10
+        CFI (cfiCond19) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI (cfiCond19) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI (cfiCond19) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI (cfiCond19) V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI (cfiCond19) V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI (cfiCond19) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI (cfiCond19) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI (cfiCond19) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI (cfiCond19) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI (cfiCond19) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI (cfiCond19) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI (cfiCond19) CFA_SP SP+0
+        CFI (cfiCond19) CFA_XSP16 add(XSP16, 17)
+        CFI Block cfiPicker20 Using cfiCommon1
+        CFI (cfiPicker20) NoFunction
+        CFI (cfiPicker20) Picker
         MOV     DPL,A
         MOV     A,R7
         ADDC    A,#0x0
         MOV     DPH,A
         MOVX    A,@DPTR
         RET
+        CFI EndBlock cfiCond15
+        CFI EndBlock cfiCond16
+        CFI EndBlock cfiCond17
+        CFI EndBlock cfiCond18
         CFI EndBlock cfiCond19
-        CFI EndBlock cfiCond20
-        CFI EndBlock cfiCond21
-        CFI EndBlock cfiCond22
-        CFI EndBlock cfiCond23
-        CFI EndBlock cfiPicker24
+        CFI EndBlock cfiPicker20
+//  495 
+//  496 /*********************************************************************
+//  497  * @fn      SampleApp_SendPeriodicMessage
+//  498  *
+//  499  * @brief   Send the periodic message.
+//  500  *
+//  501  * @param   none
+//  502  *
+//  503  * @return  none
+//  504  */
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-?Subroutine2:
-        CFI Block cfiCond25 Using cfiCommon0
-        CFI NoFunction
-        CFI Conditional ??CrossCallReturnLabel_0
-        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
-        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-        CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-        CFI CFA_SP SP+0
-        CFI CFA_XSP16 add(XSP16, 17)
-        CFI Block cfiCond26 Using cfiCommon0
-        CFI (cfiCond26) NoFunction
-        CFI (cfiCond26) Conditional ??CrossCallReturnLabel_1
-        CFI (cfiCond26) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-        CFI (cfiCond26) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
-        CFI (cfiCond26) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-        CFI (cfiCond26) V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-        CFI (cfiCond26) V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-        CFI (cfiCond26) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-        CFI (cfiCond26) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-        CFI (cfiCond26) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-        CFI (cfiCond26) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-        CFI (cfiCond26) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-        CFI (cfiCond26) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-        CFI (cfiCond26) CFA_SP SP+0
-        CFI (cfiCond26) CFA_XSP16 add(XSP16, 17)
-        CFI Block cfiCond27 Using cfiCommon0
-        CFI (cfiCond27) NoFunction
-        CFI (cfiCond27) Conditional ??CrossCallReturnLabel_2
-        CFI (cfiCond27) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
-        CFI (cfiCond27) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
-        CFI (cfiCond27) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
-        CFI (cfiCond27) V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-        CFI (cfiCond27) V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-        CFI (cfiCond27) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-        CFI (cfiCond27) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-        CFI (cfiCond27) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-        CFI (cfiCond27) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-        CFI (cfiCond27) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-        CFI (cfiCond27) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-        CFI (cfiCond27) CFA_SP SP+0
-        CFI (cfiCond27) CFA_XSP16 add(XSP16, 17)
-        CFI Block cfiPicker28 Using cfiCommon1
-        CFI (cfiPicker28) NoFunction
-        CFI (cfiPicker28) Picker
-        ANL     0x80,#0xcc
-        ORL     0x80,#0x33
-        ANL     0x90,#0x33
-        RET
-        CFI EndBlock cfiCond25
-        CFI EndBlock cfiCond26
-        CFI EndBlock cfiCond27
-        CFI EndBlock cfiPicker28
-//  509 
-//  510 /*********************************************************************
-//  511  * @fn      SampleApp_SendPeriodicMessage
-//  512  *
-//  513  * @brief   Send the periodic message.
-//  514  *
-//  515  * @param   none
-//  516  *
-//  517  * @return  none
-//  518  */
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
-//  519 void SampleApp_SendPeriodicMessage(uint8 ADR)
+//  505 void SampleApp_SendPeriodicMessage(uint8 ADR)
 SampleApp_SendPeriodicMessage:
-        CFI Block cfiBlock29 Using cfiCommon0
+        CFI Block cfiBlock21 Using cfiCommon0
         CFI Function SampleApp_SendPeriodicMessage
         CODE
-//  520 {
+//  506 {
         FUNCALL SampleApp_SendPeriodicMessage, AF_DataRequest
         LOCFRAME ISTACK, 0, STACK
         LOCFRAME PSTACK, 0, STACK
@@ -2560,7 +2412,7 @@ SampleApp_SendPeriodicMessage:
         CFI CFA_XSP16 add(XSP16, 13)
         MOV     A,R1
         MOV     R6,A
-//  521   uint8 data[]="D1";
+//  507   uint8 data[]="D1";
         MOV     DPL,?XSP + 0
         MOV     DPH,?XSP + 1
         MOV     R4,DPL
@@ -2569,7 +2421,7 @@ SampleApp_SendPeriodicMessage:
         MOV     DPL,#`?<Constant "D1">` & 0xff
         MOV     A,#0x3
         LCALL   ?MOVE_LONG8_XDATA_XDATA
-//  522   data[1]=ADR+0X30;
+//  508   data[1]=ADR+0X30;
         MOV     A,#0x30
         ADD     A,R6
         PUSH    A
@@ -2578,15 +2430,15 @@ SampleApp_SendPeriodicMessage:
         LCALL   ?XSTACK_DISP0_8
         POP     A
         CFI CFA_SP SP+0
-        LCALL   ?Subroutine5 & 0xFFFF
-//  523   if ( AF_DataRequest( &SampleApp_Periodic_DstAddr, &SampleApp_epDesc,
-//  524                        SAMPLEAPP_PERIODIC_CLUSTERID,
-//  525                        2,
-//  526                        data,
-//  527                        &SampleApp_TransID,
-//  528                        AF_DISCV_ROUTE,
-//  529                        AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
-??CrossCallReturnLabel_3:
+        LCALL   ?Subroutine4 & 0xFFFF
+//  509   if ( AF_DataRequest( &SampleApp_Periodic_DstAddr, &SampleApp_epDesc,
+//  510                        SAMPLEAPP_PERIODIC_CLUSTERID,
+//  511                        2,
+//  512                        data,
+//  513                        &SampleApp_TransID,
+//  514                        AF_DISCV_ROUTE,
+//  515                        AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
+??CrossCallReturnLabel_0:
         LCALL   ?PUSH_XSTACK_I_ONE
         CFI CFA_XSP16 add(XSP16, 14)
         MOV     ?V0 + 0,#SampleApp_TransID & 0xff
@@ -2616,32 +2468,32 @@ SampleApp_SendPeriodicMessage:
         MOV     R2,#SampleApp_Periodic_DstAddr & 0xff
         MOV     R3,#(SampleApp_Periodic_DstAddr >> 8) & 0xff
         LJMP    ?Subroutine1 & 0xFFFF
-        CFI EndBlock cfiBlock29
-//  530   {
-//  531   }
-//  532   else
-//  533   {
-//  534     // Error occurred in request to send.
-//  535   }
-//  536 }
-//  537 
-//  538 /*********************************************************************
-//  539  * @fn      SampleApp_SendFlashMessage
-//  540  *
-//  541  * @brief   Send the flash message to group 1.
-//  542  *
-//  543  * @param   flashTime - in milliseconds
-//  544  *
-//  545  * @return  none
-//  546  */
+        CFI EndBlock cfiBlock21
+//  516   {
+//  517   }
+//  518   else
+//  519   {
+//  520     // Error occurred in request to send.
+//  521   }
+//  522 }
+//  523 
+//  524 /*********************************************************************
+//  525  * @fn      SampleApp_SendFlashMessage
+//  526  *
+//  527  * @brief   Send the flash message to group 1.
+//  528  *
+//  529  * @param   flashTime - in milliseconds
+//  530  *
+//  531  * @return  none
+//  532  */
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-//  547 void SampleApp_SendFlashMessage( uint16 flashTime )
+//  533 void SampleApp_SendFlashMessage( uint16 flashTime )
 SampleApp_SendFlashMessage:
-        CFI Block cfiBlock30 Using cfiCommon0
+        CFI Block cfiBlock22 Using cfiCommon0
         CFI Function SampleApp_SendFlashMessage
         CODE
-//  548 {
+//  534 {
         FUNCALL SampleApp_SendFlashMessage, AF_DataRequest
         LOCFRAME ISTACK, 0, STACK
         LOCFRAME PSTACK, 0, STACK
@@ -2672,34 +2524,34 @@ SampleApp_SendFlashMessage:
         MOV     A,#-0x3
         LCALL   ?ALLOC_XSTACK8
         CFI CFA_XSP16 add(XSP16, 13)
-//  549   uint8 buffer[3];
-//  550   buffer[0] = (uint8)(SampleAppFlashCounter++);
+//  535   uint8 buffer[3];
+//  536   buffer[0] = (uint8)(SampleAppFlashCounter++);
         MOV     DPTR,#SampleAppFlashCounter
-        LCALL   ??Subroutine7_0 & 0xFFFF
-??CrossCallReturnLabel_9:
+        LCALL   ??Subroutine5_0 & 0xFFFF
+??CrossCallReturnLabel_3:
         MOV     DPTR,#SampleAppFlashCounter
         MOVX    A,@DPTR
         INC     A
         MOVX    @DPTR,A
-//  551   buffer[1] = LO_UINT16( flashTime );
+//  537   buffer[1] = LO_UINT16( flashTime );
         MOV     A,#0x1
         LCALL   ?XSTACK_DISP0_8
         MOV     A,R2
         MOVX    @DPTR,A
-//  552   buffer[2] = HI_UINT16( flashTime );
+//  538   buffer[2] = HI_UINT16( flashTime );
         MOV     A,#0x2
         LCALL   ?XSTACK_DISP0_8
         MOV     A,R3
-        LCALL   ?Subroutine5 & 0xFFFF
-//  553 
-//  554   if ( AF_DataRequest( &SampleApp_Flash_DstAddr, &SampleApp_epDesc,
-//  555                        SAMPLEAPP_FLASH_CLUSTERID,
-//  556                        3,
-//  557                        buffer,
-//  558                        &SampleApp_TransID,
-//  559                        AF_DISCV_ROUTE,
-//  560                        AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
-??CrossCallReturnLabel_4:
+        LCALL   ?Subroutine4 & 0xFFFF
+//  539 
+//  540   if ( AF_DataRequest( &SampleApp_Flash_DstAddr, &SampleApp_epDesc,
+//  541                        SAMPLEAPP_FLASH_CLUSTERID,
+//  542                        3,
+//  543                        buffer,
+//  544                        &SampleApp_TransID,
+//  545                        AF_DISCV_ROUTE,
+//  546                        AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
+??CrossCallReturnLabel_1:
         LCALL   ?PUSH_XSTACK_I_ONE
         CFI CFA_XSP16 add(XSP16, 14)
         MOV     ?V0 + 0,#SampleApp_TransID & 0xff
@@ -2729,20 +2581,20 @@ SampleApp_SendFlashMessage:
         MOV     R2,#SampleApp_Flash_DstAddr & 0xff
         MOV     R3,#(SampleApp_Flash_DstAddr >> 8) & 0xff
         SJMP    ?Subroutine1
-        CFI EndBlock cfiBlock30
-//  561   {
-//  562   }
-//  563   else
-//  564   {
-//  565     // Error occurred in request to send.
-//  566   }
-//  567 }
+        CFI EndBlock cfiBlock22
+//  547   {
+//  548   }
+//  549   else
+//  550   {
+//  551     // Error occurred in request to send.
+//  552   }
+//  553 }
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-?Subroutine5:
-        CFI Block cfiCond31 Using cfiCommon0
+?Subroutine4:
+        CFI Block cfiCond23 Using cfiCommon0
         CFI NoFunction
-        CFI Conditional ??CrossCallReturnLabel_3
+        CFI Conditional ??CrossCallReturnLabel_0
         CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
         CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
         CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
@@ -2755,39 +2607,39 @@ SampleApp_SendFlashMessage:
         CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
         CFI CFA_SP SP+0
         CFI CFA_XSP16 add(XSP16, 13)
-        CFI Block cfiCond32 Using cfiCommon0
-        CFI (cfiCond32) NoFunction
-        CFI (cfiCond32) Conditional ??CrossCallReturnLabel_4
-        CFI (cfiCond32) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-        CFI (cfiCond32) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
-        CFI (cfiCond32) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-        CFI (cfiCond32) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-        CFI (cfiCond32) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-        CFI (cfiCond32) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-        CFI (cfiCond32) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-        CFI (cfiCond32) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-        CFI (cfiCond32) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-        CFI (cfiCond32) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-        CFI (cfiCond32) CFA_SP SP+0
-        CFI (cfiCond32) CFA_XSP16 add(XSP16, 13)
-        CFI Block cfiCond33 Using cfiCommon0
-        CFI (cfiCond33) NoFunction
-        CFI (cfiCond33) Conditional ??CrossCallReturnLabel_5
-        CFI (cfiCond33) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-        CFI (cfiCond33) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
-        CFI (cfiCond33) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-        CFI (cfiCond33) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-        CFI (cfiCond33) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-        CFI (cfiCond33) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-        CFI (cfiCond33) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-        CFI (cfiCond33) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-        CFI (cfiCond33) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-        CFI (cfiCond33) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-        CFI (cfiCond33) CFA_SP SP+0
-        CFI (cfiCond33) CFA_XSP16 add(XSP16, 13)
-        CFI Block cfiPicker34 Using cfiCommon1
-        CFI (cfiPicker34) NoFunction
-        CFI (cfiPicker34) Picker
+        CFI Block cfiCond24 Using cfiCommon0
+        CFI (cfiCond24) NoFunction
+        CFI (cfiCond24) Conditional ??CrossCallReturnLabel_1
+        CFI (cfiCond24) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI (cfiCond24) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI (cfiCond24) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI (cfiCond24) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI (cfiCond24) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI (cfiCond24) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI (cfiCond24) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI (cfiCond24) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI (cfiCond24) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI (cfiCond24) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI (cfiCond24) CFA_SP SP+0
+        CFI (cfiCond24) CFA_XSP16 add(XSP16, 13)
+        CFI Block cfiCond25 Using cfiCommon0
+        CFI (cfiCond25) NoFunction
+        CFI (cfiCond25) Conditional ??CrossCallReturnLabel_2
+        CFI (cfiCond25) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI (cfiCond25) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI (cfiCond25) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI (cfiCond25) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI (cfiCond25) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI (cfiCond25) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI (cfiCond25) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI (cfiCond25) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI (cfiCond25) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI (cfiCond25) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI (cfiCond25) CFA_SP SP+0
+        CFI (cfiCond25) CFA_XSP16 add(XSP16, 13)
+        CFI Block cfiPicker26 Using cfiCommon1
+        CFI (cfiPicker26) NoFunction
+        CFI (cfiPicker26) Picker
         MOVX    @DPTR,A
         ; Setup parameters for call to function AF_DataRequest
         ; Setup parameters for call to function AF_DataRequest
@@ -2795,19 +2647,19 @@ SampleApp_SendFlashMessage:
         MOV     ?V0 + 0,#0x1e
         MOV     R0,#?V0 + 0
         RET
-        CFI EndBlock cfiCond31
-        CFI EndBlock cfiCond32
-        CFI EndBlock cfiCond33
-        CFI EndBlock cfiPicker34
-//  568 
+        CFI EndBlock cfiCond23
+        CFI EndBlock cfiCond24
+        CFI EndBlock cfiCond25
+        CFI EndBlock cfiPicker26
+//  554 
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-//  569 void SampleApp_Send_P2P_Message(uint8 quality) 
+//  555 void SampleApp_Send_P2P_Message(uint8 quality) 
 SampleApp_Send_P2P_Message:
-        CFI Block cfiBlock35 Using cfiCommon0
+        CFI Block cfiBlock27 Using cfiCommon0
         CFI Function SampleApp_Send_P2P_Message
         CODE
-//  570 { 
+//  556 { 
         FUNCALL SampleApp_Send_P2P_Message, AF_DataRequest
         LOCFRAME ISTACK, 0, STACK
         LOCFRAME PSTACK, 0, STACK
@@ -2838,14 +2690,14 @@ SampleApp_Send_P2P_Message:
         MOV     A,#-0x3
         LCALL   ?ALLOC_XSTACK8
         CFI CFA_XSP16 add(XSP16, 13)
-//  571   
-//  572   uint8  strTemp[3];
-//  573   strTemp[0] = 111;
+//  557   
+//  558   uint8  strTemp[3];
+//  559   strTemp[0] = 111;
         MOV     DPL,?XSP + 0
         MOV     DPH,?XSP + 1
         MOV     A,#0x6f
         MOVX    @DPTR,A
-//  574   strTemp[1] = TXPOWER;
+//  560   strTemp[1] = TXPOWER;
         MOV     DPTR,#0x6190
         MOVX    A,@DPTR
         PUSH    A
@@ -2855,20 +2707,20 @@ SampleApp_Send_P2P_Message:
         POP     A
         CFI CFA_SP SP+0
         MOVX    @DPTR,A
-//  575   strTemp[2] = quality;
+//  561   strTemp[2] = quality;
         MOV     A,#0x2
         LCALL   ?XSTACK_DISP0_8
         MOV     A,R1
-        LCALL   ?Subroutine5 & 0xFFFF
-//  576   
-//  577     if ( AF_DataRequest( &SampleApp_P2P_DstAddr, &SampleApp_epDesc, 
-//  578                           SAMPLEAPP_P2P_CLUSTERID, 
-//  579                           3, 
-//  580                           strTemp, 
-//  581                           &SampleApp_TransID, 
-//  582                           AF_DISCV_ROUTE, 
-//  583                           AF_DEFAULT_RADIUS ) == afStatus_SUCCESS ) 
-??CrossCallReturnLabel_5:
+        LCALL   ?Subroutine4 & 0xFFFF
+//  562   
+//  563     if ( AF_DataRequest( &SampleApp_P2P_DstAddr, &SampleApp_epDesc, 
+//  564                           SAMPLEAPP_P2P_CLUSTERID, 
+//  565                           3, 
+//  566                           strTemp, 
+//  567                           &SampleApp_TransID, 
+//  568                           AF_DISCV_ROUTE, 
+//  569                           AF_DEFAULT_RADIUS ) == afStatus_SUCCESS ) 
+??CrossCallReturnLabel_2:
         LCALL   ?PUSH_XSTACK_I_ONE
         CFI CFA_XSP16 add(XSP16, 14)
         MOV     ?V0 + 0,#SampleApp_TransID & 0xff
@@ -2897,21 +2749,21 @@ SampleApp_Send_P2P_Message:
         MOV     R5,#(SampleApp_epDesc >> 8) & 0xff
         MOV     R2,#SampleApp_P2P_DstAddr & 0xff
         MOV     R3,#(SampleApp_P2P_DstAddr >> 8) & 0xff
-        CFI EndBlock cfiBlock35
+        CFI EndBlock cfiBlock27
         REQUIRE ?Subroutine1
         ; // Fall through to label ?Subroutine1
-//  584     { 
-//  585       
-//  586     }
-//  587     else 
-//  588     { 
-//  589         // Error occurred in request to send. 
-//  590     } 
-//  591 } 
+//  570     { 
+//  571       
+//  572     }
+//  573     else 
+//  574     { 
+//  575         // Error occurred in request to send. 
+//  576     } 
+//  577 } 
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
 ?Subroutine1:
-        CFI Block cfiBlock36 Using cfiCommon0
+        CFI Block cfiBlock28 Using cfiCommon0
         CFI NoFunction
         CFI CFA_SP SP+0
         CFI CFA_XSP16 add(XSP16, 22)
@@ -2931,13 +2783,13 @@ SampleApp_Send_P2P_Message:
         CFI CFA_XSP16 add(XSP16, 13)
         MOV     A,#0x3
         LCALL   ?DEALLOC_XSTACK8
-        CFI EndBlock cfiBlock36
-        REQUIRE ??Subroutine9_0
-        ; // Fall through to label ??Subroutine9_0
+        CFI EndBlock cfiBlock28
+        REQUIRE ??Subroutine7_0
+        ; // Fall through to label ??Subroutine7_0
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-??Subroutine9_0:
-        CFI Block cfiBlock37 Using cfiCommon0
+??Subroutine7_0:
+        CFI Block cfiBlock29 Using cfiCommon0
         CFI NoFunction
         CFI CFA_SP SP+0
         CFI CFA_XSP16 add(XSP16, 10)
@@ -2953,26 +2805,26 @@ SampleApp_Send_P2P_Message:
         CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
         MOV     R7,#0x2
         LJMP    ?BANKED_LEAVE_XDATA
-        CFI EndBlock cfiBlock37
-//  592 /*********************************************************************
-//  593 *********************************************************************/
+        CFI EndBlock cfiBlock29
+//  578 /*********************************************************************
+//  579 *********************************************************************/
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-//  594 char abs(char x)
+//  580 char abs(char x)
 abs:
-        CFI Block cfiBlock38 Using cfiCommon0
+        CFI Block cfiBlock30 Using cfiCommon0
         CFI Function abs
         CODE
-//  595 {
+//  581 {
         ; Saved register size: 0
         ; Auto size: 0
-//  596   if(x>=0)
-//  597     return x;
+//  582   if(x>=0)
+//  583     return x;
         LJMP    ?BRET
-        CFI EndBlock cfiBlock38
-//  598   else
-//  599     return -x;
-//  600 }
+        CFI EndBlock cfiBlock30
+//  584   else
+//  585     return -x;
+//  586 }
 
         RSEG XDATA_ID:CODE:NOROOT(0)
 `?<Initializer for ADDR>`:
@@ -3046,7 +2898,7 @@ abs:
 
         END
 // 
-// 1 203 bytes in segment BANKED_CODE
+// 1 168 bytes in segment BANKED_CODE
 //    48 bytes in segment BANK_RELAYS
 //     4 bytes in segment SFR_AN
 //     1 byte  in segment XDATA_I
@@ -3054,7 +2906,7 @@ abs:
 //    31 bytes in segment XDATA_ROM_C
 //    69 bytes in segment XDATA_Z
 // 
-// 1 252 bytes of CODE  memory
+// 1 217 bytes of CODE  memory
 //    31 bytes of CONST memory
 //     0 bytes of DATA  memory (+ 4 bytes shared)
 //    70 bytes of XDATA memory
