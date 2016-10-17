@@ -421,22 +421,24 @@ void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
       
     case SAMPLEAPP_P2P_CLUSTERID:
        osal_memcpy(data,pkt->cmd.Data,pkt->cmd.DataLength);
-       uint8 rssilevel = pkt->rssi;
-       uint8 message[2];
+       uint8 quality = pkt->LinkQuality;
+       uint8 message[4];
        message[0] = TXPOWER;
-       message[1] = rssilevel;
-       HalUARTWrite(0, message, 2);
+       message[1] = quality;
+       
 
        // 若收到数据且数据无误，直接亮起,否则led1闪2次，周期是150ms
        if(data[0] == 111)
-       {    shortAddr = pkg->srcAddr->addr->shortAddr;
+       {    shortAddr = pkt->srcAddr.addr.shortAddr;
             P1_1 = 1;
+            message[2] = data[1];
+            message[3] = data[2];
        }
        else
        {
             HalLedBlink( HAL_LED_1, 2, 50, 150 );
        }
- 
+      HalUARTWrite(0, message, 4);
       break;  
       
     case SAMPLEAPP_FLASH_CLUSTERID:
@@ -444,10 +446,6 @@ void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
       HalLedBlink( HAL_LED_4, 4, 50, (flashTime / 4) );
       break;
   }
-}
-
-uint8 apend(uint8* message, uint16 dat) {
-    
 }
 
 /*********************************************************************

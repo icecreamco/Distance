@@ -1,6 +1,6 @@
 ###############################################################################
 #                                                                             #
-# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         31/Aug/2016  21:13:16 #
+# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         17/Oct/2016  21:23:24 #
 # Copyright 2004-2011 IAR Systems AB.                                         #
 #                                                                             #
 #    Core               =  plain                                              #
@@ -9,16 +9,16 @@
 #    Calling convention =  xdata reentrant                                    #
 #    Constant location  =  data_rom                                           #
 #    Dptr setup         =  1,16                                               #
-#    Source file        =  C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvice\C #
-#                          omponents\hal\target\CC2530EB\hal_key.c            #
-#    Command line       =  -f C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvic #
-#                          e\Projects\zstack\Samples\SampleApp\CC2530DB\..\.. #
-#                          \..\Tools\CC2530DB\f8wEndev.cfg (-DCPU32MHZ        #
+#    Source file        =  C:\Users\icecreamco\Desktop\Distance\EndDvice\Comp #
+#                          onents\hal\target\CC2530EB\hal_key.c               #
+#    Command line       =  -f C:\Users\icecreamco\Desktop\Distance\EndDvice\P #
+#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
+#                          \Tools\CC2530DB\f8wEndev.cfg (-DCPU32MHZ           #
 #                          -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3         #
 #                          -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f          #
-#                          C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvice\P #
-#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
-#                          \Tools\CC2530DB\f8wConfig.cfg (-DZIGBEEPRO         #
+#                          C:\Users\icecreamco\Desktop\Distance\EndDvice\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\To #
+#                          ols\CC2530DB\f8wConfig.cfg (-DZIGBEEPRO            #
 #                          -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR       #
 #                          -DDEFAULT_CHANLIST=0x00000800                      #
 #                          -DZDAPP_CONFIG_PAN_ID=0x1234                       #
@@ -42,95 +42,93 @@
 #                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
 #                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
 #                          -DREJOIN_POLL_RATE=440 C:\Users\icecreamco\Desktop #
-#                          \´ø¹¦·Å-¾àÀë\EndDvice\Components\hal\target\CC2530 #
-#                          EB\hal_key.c -D xNWK_AUTO_POLL -D ZTOOL_P1 -D      #
+#                          \Distance\EndDvice\Components\hal\target\CC2530EB\ #
+#                          hal_key.c -D xNWK_AUTO_POLL -D ZTOOL_P1 -D         #
 #                          AUTO_RESET -D end01 -D xMT_TASK -D xMT_SYS_FUNC    #
 #                          -D xMT_ZDO_FUNC -D xLCD_SUPPORTED=DEBUG -lC        #
-#                          C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvice\P #
-#                          rojects\zstack\Samples\SampleApp\CC2530DB\EndDevic #
-#                          eEB\List\ -lA C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾ #
-#                          àÀë\EndDvice\Projects\zstack\Samples\SampleApp\CC2 #
-#                          530DB\EndDeviceEB\List\ --diag_suppress            #
-#                          Pe001,Pa010 -o C:\Users\icecreamco\Desktop\´ø¹¦·Å- #
-#                          ¾àÀë\EndDvice\Projects\zstack\Samples\SampleApp\CC #
-#                          2530DB\EndDeviceEB\Obj\ -e --no_code_motion        #
-#                          --debug --core=plain --dptr=16,1                   #
-#                          --data_model=large --code_model=banked             #
-#                          --calling_convention=xdata_reentrant               #
-#                          --place_constants=data_rom --nr_virtual_regs 16    #
-#                          -I C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvic #
-#                          e\Projects\zstack\Samples\SampleApp\CC2530DB\ -I   #
-#                          C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvice\P #
-#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\Sourc #
-#                          e\ -I C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndD #
-#                          vice\Projects\zstack\Samples\SampleApp\CC2530DB\.. #
-#                          \..\..\ZMain\TI2530DB\ -I                          #
-#                          C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvice\P #
+#                          C:\Users\icecreamco\Desktop\Distance\EndDvice\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\EndDeviceEB #
+#                          \List\ -lA C:\Users\icecreamco\Desktop\Distance\En #
+#                          dDvice\Projects\zstack\Samples\SampleApp\CC2530DB\ #
+#                          EndDeviceEB\List\ --diag_suppress Pe001,Pa010 -o   #
+#                          C:\Users\icecreamco\Desktop\Distance\EndDvice\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\EndDeviceEB #
+#                          \Obj\ -e --no_code_motion --debug --core=plain     #
+#                          --dptr=16,1 --data_model=large                     #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I C:\Users\icecreamco\Deskto #
+#                          p\Distance\EndDvice\Projects\zstack\Samples\Sample #
+#                          App\CC2530DB\ -I C:\Users\icecreamco\Desktop\Dista #
+#                          nce\EndDvice\Projects\zstack\Samples\SampleApp\CC2 #
+#                          530DB\..\Source\ -I C:\Users\icecreamco\Desktop\Di #
+#                          stance\EndDvice\Projects\zstack\Samples\SampleApp\ #
+#                          CC2530DB\..\..\..\ZMain\TI2530DB\ -I               #
+#                          C:\Users\icecreamco\Desktop\Distance\EndDvice\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\hal\include\ -I                     #
+#                          C:\Users\icecreamco\Desktop\Distance\EndDvice\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\hal\target\CC2530EB\ -I             #
+#                          C:\Users\icecreamco\Desktop\Distance\EndDvice\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\mac\include\ -I                     #
+#                          C:\Users\icecreamco\Desktop\Distance\EndDvice\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\mac\high_level\ -I                  #
+#                          C:\Users\icecreamco\Desktop\Distance\EndDvice\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\mac\low_level\srf04\ -I             #
+#                          C:\Users\icecreamco\Desktop\Distance\EndDvice\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\mac\low_level\srf04\single_chip\    #
+#                          -I C:\Users\icecreamco\Desktop\Distance\EndDvice\P #
 #                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
-#                          \..\..\Components\hal\include\ -I                  #
-#                          C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvice\P #
-#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
-#                          \..\..\Components\hal\target\CC2530EB\ -I          #
-#                          C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvice\P #
-#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
-#                          \..\..\Components\mac\include\ -I                  #
-#                          C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvice\P #
-#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
-#                          \..\..\Components\mac\high_level\ -I               #
-#                          C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvice\P #
-#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
-#                          \..\..\Components\mac\low_level\srf04\ -I          #
-#                          C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvice\P #
-#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
-#                          \..\..\Components\mac\low_level\srf04\single_chip\ #
-#                           -I C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvi #
-#                          ce\Projects\zstack\Samples\SampleApp\CC2530DB\..\. #
-#                          .\..\..\..\Components\mt\ -I                       #
-#                          C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvice\P #
-#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
-#                          \..\..\Components\osal\include\ -I                 #
-#                          C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvice\P #
-#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
-#                          \..\..\Components\services\saddr\ -I               #
-#                          C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvice\P #
-#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
-#                          \..\..\Components\services\sdata\ -I               #
-#                          C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvice\P #
-#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
-#                          \..\..\Components\stack\af\ -I                     #
-#                          C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvice\P #
-#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
-#                          \..\..\Components\stack\nwk\ -I                    #
-#                          C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvice\P #
-#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
-#                          \..\..\Components\stack\sapi\ -I                   #
-#                          C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvice\P #
-#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
-#                          \..\..\Components\stack\sec\ -I                    #
-#                          C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvice\P #
-#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
-#                          \..\..\Components\stack\sys\ -I                    #
-#                          C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvice\P #
-#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
-#                          \..\..\Components\stack\zdo\ -I                    #
-#                          C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvice\P #
-#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
-#                          \..\..\Components\zmac\ -I                         #
-#                          C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvice\P #
-#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
-#                          \..\..\Components\zmac\f8w\ -Ohz                   #
-#                          --require_prototypes                               #
-#    List file          =  C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvice\P #
-#                          rojects\zstack\Samples\SampleApp\CC2530DB\EndDevic #
-#                          eEB\List\hal_key.lst                               #
-#    Object file        =  C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvice\P #
-#                          rojects\zstack\Samples\SampleApp\CC2530DB\EndDevic #
-#                          eEB\Obj\hal_key.r51                                #
+#                          \..\..\Components\mt\ -I                           #
+#                          C:\Users\icecreamco\Desktop\Distance\EndDvice\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\osal\include\ -I                    #
+#                          C:\Users\icecreamco\Desktop\Distance\EndDvice\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\services\saddr\ -I                  #
+#                          C:\Users\icecreamco\Desktop\Distance\EndDvice\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\services\sdata\ -I                  #
+#                          C:\Users\icecreamco\Desktop\Distance\EndDvice\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\stack\af\ -I                        #
+#                          C:\Users\icecreamco\Desktop\Distance\EndDvice\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\stack\nwk\ -I                       #
+#                          C:\Users\icecreamco\Desktop\Distance\EndDvice\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\stack\sapi\ -I                      #
+#                          C:\Users\icecreamco\Desktop\Distance\EndDvice\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\stack\sec\ -I                       #
+#                          C:\Users\icecreamco\Desktop\Distance\EndDvice\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\stack\sys\ -I                       #
+#                          C:\Users\icecreamco\Desktop\Distance\EndDvice\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\stack\zdo\ -I                       #
+#                          C:\Users\icecreamco\Desktop\Distance\EndDvice\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\zmac\ -I C:\Users\icecreamco\Deskto #
+#                          p\Distance\EndDvice\Projects\zstack\Samples\Sample #
+#                          App\CC2530DB\..\..\..\..\..\Components\zmac\f8w\   #
+#                          -Ohz --require_prototypes                          #
+#    List file          =  C:\Users\icecreamco\Desktop\Distance\EndDvice\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\EndDeviceEB #
+#                          \List\hal_key.lst                                  #
+#    Object file        =  C:\Users\icecreamco\Desktop\Distance\EndDvice\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\EndDeviceEB #
+#                          \Obj\hal_key.r51                                   #
 #                                                                             #
 #                                                                             #
 ###############################################################################
 
-C:\Users\icecreamco\Desktop\´ø¹¦·Å-¾àÀë\EndDvice\Components\hal\target\CC2530EB\hal_key.c
+C:\Users\icecreamco\Desktop\Distance\EndDvice\Components\hal\target\CC2530EB\hal_key.c
       1          /**************************************************************************************************
       2            Filename:       hal_key.c
       3            Revised:        $Date: 2010-09-15 19:02:45 -0700 (Wed, 15 Sep 2010) $

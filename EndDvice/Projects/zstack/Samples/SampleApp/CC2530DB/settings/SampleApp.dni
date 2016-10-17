@@ -1,5 +1,5 @@
 [DebugChecksum]
-Checksum=-232865837
+Checksum=2131816750
 [DisAssemblyWindow]
 NumStates=_ 1
 State 1=_ 1
@@ -25,11 +25,10 @@ Category=_ 0
 LoggingEnabled=_ 0
 LogFile=_ ""
 [Breakpoints]
-Bp0=_ "STD_CODE" "{$PROJ_DIR$\..\Source\SampleApp.c}.191.3@1" 0 0 0 0 "" 0 ""
-Bp1=_ "STD_CODE" "{$PROJ_DIR$\..\..\..\..\..\Components\mac\low_level\srf04\mac_radio.c}.269.3@1" 0 0 0 0 "" 0 ""
-Bp2=_ "STD_CODE" "{$PROJ_DIR$\..\..\..\..\..\Components\mac\low_level\srf04\mac_radio.c}.345.7@1" 0 0 0 0 "" 0 ""
-Bp3=_ "STD_CODE" "{$PROJ_DIR$\..\..\..\..\..\Components\mac\low_level\srf04\mac_radio.c}.251.3@1" 0 0 0 0 "" 0 ""
-Count=4
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\..\..\..\..\..\Components\mac\low_level\srf04\mac_radio.c}.269.3@1" 0 0 0 0 "" 0 ""
+Bp1=_ "STD_CODE" "{$PROJ_DIR$\..\..\..\..\..\Components\mac\low_level\srf04\mac_radio.c}.345.7@1" 0 0 0 0 "" 0 ""
+Bp2=_ "STD_CODE" "{$PROJ_DIR$\..\..\..\..\..\Components\mac\low_level\srf04\mac_radio.c}.251.3@1" 0 0 0 0 "" 0 ""
+Count=3
 [ChipconEmu]
 Stop timers on halt=0
 Leave target running=1

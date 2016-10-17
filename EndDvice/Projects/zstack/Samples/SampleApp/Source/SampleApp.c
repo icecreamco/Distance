@@ -161,7 +161,7 @@ void SampleApp_HandleKeys( uint8 shift, uint8 keys );
 void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pckt );
 void SampleApp_SendPeriodicMessage(uint8 ADR);
 void SampleApp_SendFlashMessage( uint16 flashTime );
-void SampleApp_Send_P2P_Message(void);
+void SampleApp_Send_P2P_Message(uint8 level);
 char abs(char x);
 
 /*********************************************************************
@@ -302,8 +302,7 @@ uint16 SampleApp_ProcessEvent( uint8 task_id, uint16 events )
             osal_start_timerEx( SampleApp_TaskID,
                               SAMPLEAPP_SEND_PERIODIC_MSG_EVT,
                               SAMPLEAPP_SEND_PERIODIC_MSG_TIMEOUT );
-            SampleApp_Send_P2P_Message();
-            macRadioEnergyDetectStart();
+            SampleApp_Send_P2P_Message(0);
           }
           else
           {
@@ -411,7 +410,7 @@ void SampleApp_HandleKeys( uint8 shift, uint8 keys )
 void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
 {
   uint16 flashTime;
-  uint8 rssilevel;
+  uint8 quality;
   char data[4]={0}; 
   switch ( pkt->clusterId )
   {
@@ -424,55 +423,80 @@ void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
       
       if ( data[0]=='A' && data[1]=='B' && data[2]=='C' && data[3]=='D' )
       {
-        rssilevel=macRadioEnergyDetectStop();   //停止检测  
+        /* 
+        p0_0 -> 1
+        p0_1 -> 2
+        p1_2 -> 3
+        p1_3 -> 4
+        p0_4 -> 5
+        p0_5 -> 6
+        p1_6 -> 7
+        p1_7 -> 8
+        */
+        quality = pkt->LinkQuality;
         uint8 message[2];
         message[0] = TXPOWER;
-        message[1] = rssilevel;
+        message[1] = quality;
         HalUARTWrite(0, message, 2);
-          rssilevel=rssilevel/32+1;
-          P0DIR|=0XFF;
-          P1DIR|=0XFF;
-          switch(rssilevel)
+        quality=quality/32+1;
+          P0DIR|=0X33;
+          P1DIR|=0XCC;
+          switch(quality)
           {
             case 1:
-              P1=0X00;
-              P0=0x80;
+              P0 &= 0xcc;
+              P0 |= 0x01;
+              P1 &= 0x33;
+              P1 |= 0x00;
               break;
             case 2:
-              P1=0X00;
-              P0=0xc0;
+              P0 &= 0xcc;
+              P0 |= 0x03;
+              P1 &= 0x33;
+              P1 |= 0x00;
               break;
             case 3:
-              P1=0X00;
-              P0=0xe0;
+              P0 &= 0xcc;
+              P0 |= 0x03;
+              P1 &= 0x33;
+              P1 |= 0x04;
               break;
             case 4:
-              P1=0X00;
-              P0=0xf0;
+              P0 &= 0xcc;
+              P0 |= 0x03;
+              P1 &= 0x33;
+              P1 |= 0x0c;
               break;
             case 5:
-              P1=0X08;
-              P0=0xf8;
+              P0 &= 0xcc;
+              P0 |= 0x13;
+              P1 &= 0x33;
+              P1 |= 0x0c;
               break;
             case 6:
-              P1=0X0C;
-              P0=0xfc;
+              P0 &= 0xcc;
+              P0 |= 0x33;
+              P1 &= 0x33;
+              P1 |= 0x0c;
               break;
             case 7:
-              P1=0X0C;
-              P0=0xfe;
+              P0 &= 0xcc;
+              P0 |= 0x33;
+              P1 &= 0x33;
+              P1 |= 0x4c;
               break;
             case 8:
-              P1=0X0C;
-              P0=0xff;
+              P0 &= 0xcc;
+              P0 |= 0x33;
+              P1 &= 0x33;
+              P1 |= 0xcc;
               break;
             default:
               P1=0X00;
               P0=0X00;
               break;
           }
-          macRadioEnergyDetectStart();             //再次开始检测
-          SampleApp_Send_P2P_Message();
+          SampleApp_Send_P2P_Message(pkt->LinkQuality);
       }
       break;  
       
@@ -542,13 +566,13 @@ void SampleApp_SendFlashMessage( uint16 flashTime )
   }
 }
 
-void SampleApp_Send_P2P_Message() 
+void SampleApp_Send_P2P_Message(uint8 quality) 
 { 
   
   uint8  strTemp[3];
   strTemp[0] = 111;
-  strTemp[1] = NLME_GetShortAddr() / 256;
-  strTemp[2] = NLME_GetShortAddr() % 256;
+  strTemp[1] = TXPOWER;
+  strTemp[2] = quality;
   
     if ( AF_DataRequest( &SampleApp_P2P_DstAddr, &SampleApp_epDesc, 
                           SAMPLEAPP_P2P_CLUSTERID, 
