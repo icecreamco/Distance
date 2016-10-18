@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                            /
-// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        17/Oct/2016  22:30:02 /
+// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        18/Oct/2016  17:28:06 /
 // Copyright 2004-2011 IAR Systems AB.                                        /
 //                                                                            /
 //    Core               =  plain                                             /
@@ -186,6 +186,7 @@
         PUBLIC LanFlagT
         PUBWEAK P0DIR
         PUBWEAK P1DIR
+        PUBWEAK P2DIR
         PUBLIC RXDATA
         PUBLIC RX_F
         PUBLIC SampleAppFlashCounter
@@ -243,6 +244,7 @@
         PUBLIC SampleApp_epDesc
         PUBWEAK _A_P0
         PUBWEAK _A_P1
+        PUBWEAK _A_P2
         PUBLIC abs
         FUNCTION abs,0203H
         ARGFRAME XSTACK, 0, STACK
@@ -667,6 +669,12 @@ _A_P1:
         DATA8
         DS 1
 
+        ASEGN SFR_AN:DATA:NOROOT,0a0H
+// union <unnamed> volatile __sfr _A_P2
+_A_P2:
+        DATA8
+        DS 1
+
         ASEGN SFR_AN:DATA:NOROOT,0fdH
 // unsigned char volatile __sfr P0DIR
 P0DIR:
@@ -676,6 +684,12 @@ P0DIR:
         ASEGN SFR_AN:DATA:NOROOT,0feH
 // unsigned char volatile __sfr P1DIR
 P1DIR:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0ffH
+// unsigned char volatile __sfr P2DIR
+P2DIR:
         DATA8
         DS 1
 //   69 
@@ -2029,24 +2043,30 @@ SampleApp_MessageMSGCB:
 //  431         p0_4 -> 5
 //  432         p0_5 -> 6
 //  433         p0_6 -> 7
-//  434         p1_7 -> 8
+//  434         p2_0 -> 8
 //  435         */
-//  436         quality = pkt->LinkQuality;
+//  436         P0DIR |= 0X73;
+        ORL     0xfd,#0x73
+//  437         P1DIR |= 0X0c;
+        ORL     0xfe,#0xc
+//  438         P2DIR |= 0x01;
+        ORL     0xff,#0x1
+//  439         quality = pkt->LinkQuality;
         MOV     A,R6
         ADD     A,#0x16
         LCALL   ??Subroutine6_0 & 0xFFFF
 ??CrossCallReturnLabel_7:
         MOV     ?V0 + 0,A
-//  437         uint8 message[2];
-//  438         message[0] = TXPOWER;
+//  440         uint8 message[2];
+//  441         message[0] = TXPOWER;
         LCALL   ?Subroutine2 & 0xFFFF
-//  439         message[1] = quality;
+//  442         message[1] = quality;
 ??CrossCallReturnLabel_5:
         MOV     A,#0x1
         LCALL   ?XSTACK_DISP0_8
         MOV     A,?V0 + 0
         MOVX    @DPTR,A
-//  440         HalUARTWrite(0, message, 2);
+//  443         HalUARTWrite(0, message, 2);
         ; Setup parameters for call to function HalUARTWrite
         MOV     R4,#0x2
         MOV     R5,#0x0
@@ -2056,16 +2076,14 @@ SampleApp_MessageMSGCB:
         MOV     R3,DPH
         MOV     R1,#0x0
         LCALL   ??HalUARTWrite?relay
-//  441         quality=quality/32+1;
-//  442           P0DIR|=0X73;
-        ORL     0xfd,#0x73
-//  443           P1DIR|=0X8C;
-        ORL     0xfe,#0x8c
-//  444           P0 &= 0x8c;
+//  444         quality = quality/32 + 1;
+//  445           P0 &= 0x8c;
         ANL     0x80,#0x8c
-//  445           P1 &= 0x73;
-        ANL     0x90,#0x73
-//  446           switch(quality)
+//  446           P1 &= 0xf2;
+        ANL     0x90,#0xf2
+//  447           P2 &= 0xfe;
+        CLR     0xa0.0
+//  448           switch(quality)
         MOV     A,?V0 + 0
         SWAP    A
         RRC     A
@@ -2088,92 +2106,89 @@ SampleApp_MessageMSGCB:
         DEC     A
         JZ      ??SampleApp_MessageMSGCB_10
         SJMP    ??SampleApp_MessageMSGCB_11
-//  447           {
-//  448             case 1:            
-//  449               P0 |= 0x01;            
+//  449           {
+//  450             case 1:            
+//  451               P0 |= 0x01;            
 ??SampleApp_MessageMSGCB_3:
         SETB    0x80.0
-//  450               P1 |= 0x00;
-        SJMP    ??SampleApp_MessageMSGCB_12
-//  451               break;
-//  452             case 2:
-//  453               P0 |= 0x03;
-??SampleApp_MessageMSGCB_4:
-        ORL     0x80,#0x3
-//  454               P1 |= 0x00;
-        SJMP    ??SampleApp_MessageMSGCB_12
-//  455               break;
-//  456             case 3:
-//  457               P0 |= 0x03;
-??SampleApp_MessageMSGCB_5:
-        ORL     0x80,#0x3
-//  458               P1 |= 0x04;
-        SETB    0x90.2
-//  459               break;
-        SJMP    ??SampleApp_MessageMSGCB_13
-//  460             case 4:
-//  461               P0 |= 0x03;
-??SampleApp_MessageMSGCB_6:
-        ORL     0x80,#0x3
-//  462               P1 |= 0x0c;
-??SampleApp_MessageMSGCB_14:
-        ORL     0x90,#0xc
-//  463               break;
-        SJMP    ??SampleApp_MessageMSGCB_13
-//  464             case 5:
-//  465               P0 |= 0x13;
-??SampleApp_MessageMSGCB_7:
-        ORL     0x80,#0x13
-//  466               P1 |= 0x0c;
-        SJMP    ??SampleApp_MessageMSGCB_14
-//  467               break;
-//  468             case 6:
-//  469               P0 |= 0x33;
-??SampleApp_MessageMSGCB_8:
-        ORL     0x80,#0x33
-//  470               P1 |= 0x0c;
-        SJMP    ??SampleApp_MessageMSGCB_14
-//  471               break;
-//  472             case 7:
-//  473               P0 |= 0x73;
-??SampleApp_MessageMSGCB_9:
-        ORL     0x80,#0x73
-//  474               P1 |= 0x0c;
-        SJMP    ??SampleApp_MessageMSGCB_14
-//  475               break;
-//  476             case 8:
-//  477               P0 |= 0x73;
-??SampleApp_MessageMSGCB_10:
-        ORL     0x80,#0x73
-//  478               P1 |= 0x8c;
-        ORL     0x90,#0x8c
-//  479               break;
-        SJMP    ??SampleApp_MessageMSGCB_13
-//  480             default:
-//  481               P0 |= 0x00;
-??SampleApp_MessageMSGCB_11:
-        MOV     0x80,0x80
-//  482               P1 |= 0x00;
+//  452               P1 |= 0x00;
 ??SampleApp_MessageMSGCB_12:
         MOV     0x90,0x90
-//  483               break;
-//  484           }
-//  485           SampleApp_Send_P2P_Message(pkt->LinkQuality);
+//  453               break;
+        SJMP    ??SampleApp_MessageMSGCB_11
+//  454             case 2:
+//  455               P0 |= 0x03;
+??SampleApp_MessageMSGCB_4:
+        ORL     0x80,#0x3
+//  456               P1 |= 0x00;
+        SJMP    ??SampleApp_MessageMSGCB_12
+//  457               break;
+//  458             case 3:
+//  459               P0 |= 0x03;
+??SampleApp_MessageMSGCB_5:
+        ORL     0x80,#0x3
+//  460               P1 |= 0x04;
+        SETB    0x90.2
+//  461               break;
+        SJMP    ??SampleApp_MessageMSGCB_11
+//  462             case 4:
+//  463               P0 |= 0x03;
+??SampleApp_MessageMSGCB_6:
+        ORL     0x80,#0x3
+//  464               P1 |= 0x0c;
 ??SampleApp_MessageMSGCB_13:
+        ORL     0x90,#0xc
+//  465               break;
+        SJMP    ??SampleApp_MessageMSGCB_11
+//  466             case 5:
+//  467               P0 |= 0x13;
+??SampleApp_MessageMSGCB_7:
+        ORL     0x80,#0x13
+//  468               P1 |= 0x0c;
+        SJMP    ??SampleApp_MessageMSGCB_13
+//  469               break;
+//  470             case 6:
+//  471               P0 |= 0x33;
+??SampleApp_MessageMSGCB_8:
+        ORL     0x80,#0x33
+//  472               P1 |= 0x0c;
+        SJMP    ??SampleApp_MessageMSGCB_13
+//  473               break;
+//  474             case 7:
+//  475               P0 |= 0x73;
+??SampleApp_MessageMSGCB_9:
+        ORL     0x80,#0x73
+//  476               P1 |= 0x0c;
+        SJMP    ??SampleApp_MessageMSGCB_13
+//  477               break;
+//  478             case 8:
+//  479               P0 |= 0x73;
+??SampleApp_MessageMSGCB_10:
+        ORL     0x80,#0x73
+//  480               P1 |= 0x0c;
+        ORL     0x90,#0xc
+//  481               P2 |= 0x01;
+        SETB    0xa0.0
+//  482               break;
+//  483             default:
+//  484               break;
+//  485           }
+//  486           SampleApp_Send_P2P_Message(pkt->LinkQuality);
+??SampleApp_MessageMSGCB_11:
         ; Setup parameters for call to function SampleApp_Send_P2P_Message
         MOV     A,R6
         ADD     A,#0x16
         LCALL   ??Subroutine6_0 & 0xFFFF
-//  486       }
+//  487       }
 ??CrossCallReturnLabel_8:
         MOV     R1,A
         LCALL   ??SampleApp_Send_P2P_Message?relay
         SJMP    ??SampleApp_MessageMSGCB_0
-//  487       break;  
-//  488       
-//  489     case SAMPLEAPP_FLASH_CLUSTERID:
-//  490       flashTime = BUILD_UINT16(pkt->cmd.Data[1], pkt->cmd.Data[2] );
-//  491       HalLedBlink( HAL_LED_4, 4, 50, (flashTime / 4) );
+//  488       break;  
+//  489       
+//  490     case SAMPLEAPP_FLASH_CLUSTERID:
+//  491       flashTime = BUILD_UINT16(pkt->cmd.Data[1], pkt->cmd.Data[2] );
+//  492       HalLedBlink( HAL_LED_4, 4, 50, (flashTime / 4) );
 ??SampleApp_MessageMSGCB_1:
         LCALL   ?Subroutine3 & 0xFFFF
 ??CrossCallReturnLabel_10:
@@ -2208,17 +2223,19 @@ SampleApp_MessageMSGCB:
         MOV     R2,#0x4
         MOV     R1,#0x8
         LCALL   ??HalLedBlink?relay
-//  492       break;
-//  493   }
-//  494 }
+//  493       break;
+//  494   }
+//  495 }
 ??SampleApp_MessageMSGCB_0:
         MOV     A,#0x6
         LJMP    ?Subroutine0 & 0xFFFF
         CFI EndBlock cfiBlock11
         REQUIRE P0DIR
         REQUIRE P1DIR
+        REQUIRE P2DIR
         REQUIRE _A_P0
         REQUIRE _A_P1
+        REQUIRE _A_P2
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
 ?Subroutine3:
@@ -2362,24 +2379,24 @@ SampleApp_MessageMSGCB:
         CFI EndBlock cfiCond18
         CFI EndBlock cfiCond19
         CFI EndBlock cfiPicker20
-//  495 
-//  496 /*********************************************************************
-//  497  * @fn      SampleApp_SendPeriodicMessage
-//  498  *
-//  499  * @brief   Send the periodic message.
-//  500  *
-//  501  * @param   none
-//  502  *
-//  503  * @return  none
-//  504  */
+//  496 
+//  497 /*********************************************************************
+//  498  * @fn      SampleApp_SendPeriodicMessage
+//  499  *
+//  500  * @brief   Send the periodic message.
+//  501  *
+//  502  * @param   none
+//  503  *
+//  504  * @return  none
+//  505  */
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-//  505 void SampleApp_SendPeriodicMessage(uint8 ADR)
+//  506 void SampleApp_SendPeriodicMessage(uint8 ADR)
 SampleApp_SendPeriodicMessage:
         CFI Block cfiBlock21 Using cfiCommon0
         CFI Function SampleApp_SendPeriodicMessage
         CODE
-//  506 {
+//  507 {
         FUNCALL SampleApp_SendPeriodicMessage, AF_DataRequest
         LOCFRAME ISTACK, 0, STACK
         LOCFRAME PSTACK, 0, STACK
@@ -2412,7 +2429,7 @@ SampleApp_SendPeriodicMessage:
         CFI CFA_XSP16 add(XSP16, 13)
         MOV     A,R1
         MOV     R6,A
-//  507   uint8 data[]="D1";
+//  508   uint8 data[]="D1";
         MOV     DPL,?XSP + 0
         MOV     DPH,?XSP + 1
         MOV     R4,DPL
@@ -2421,7 +2438,7 @@ SampleApp_SendPeriodicMessage:
         MOV     DPL,#`?<Constant "D1">` & 0xff
         MOV     A,#0x3
         LCALL   ?MOVE_LONG8_XDATA_XDATA
-//  508   data[1]=ADR+0X30;
+//  509   data[1]=ADR+0X30;
         MOV     A,#0x30
         ADD     A,R6
         PUSH    A
@@ -2431,13 +2448,13 @@ SampleApp_SendPeriodicMessage:
         POP     A
         CFI CFA_SP SP+0
         LCALL   ?Subroutine4 & 0xFFFF
-//  509   if ( AF_DataRequest( &SampleApp_Periodic_DstAddr, &SampleApp_epDesc,
-//  510                        SAMPLEAPP_PERIODIC_CLUSTERID,
-//  511                        2,
-//  512                        data,
-//  513                        &SampleApp_TransID,
-//  514                        AF_DISCV_ROUTE,
-//  515                        AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
+//  510   if ( AF_DataRequest( &SampleApp_Periodic_DstAddr, &SampleApp_epDesc,
+//  511                        SAMPLEAPP_PERIODIC_CLUSTERID,
+//  512                        2,
+//  513                        data,
+//  514                        &SampleApp_TransID,
+//  515                        AF_DISCV_ROUTE,
+//  516                        AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
 ??CrossCallReturnLabel_0:
         LCALL   ?PUSH_XSTACK_I_ONE
         CFI CFA_XSP16 add(XSP16, 14)
@@ -2469,31 +2486,31 @@ SampleApp_SendPeriodicMessage:
         MOV     R3,#(SampleApp_Periodic_DstAddr >> 8) & 0xff
         LJMP    ?Subroutine1 & 0xFFFF
         CFI EndBlock cfiBlock21
-//  516   {
-//  517   }
-//  518   else
-//  519   {
-//  520     // Error occurred in request to send.
-//  521   }
-//  522 }
-//  523 
-//  524 /*********************************************************************
-//  525  * @fn      SampleApp_SendFlashMessage
-//  526  *
-//  527  * @brief   Send the flash message to group 1.
-//  528  *
-//  529  * @param   flashTime - in milliseconds
-//  530  *
-//  531  * @return  none
-//  532  */
+//  517   {
+//  518   }
+//  519   else
+//  520   {
+//  521     // Error occurred in request to send.
+//  522   }
+//  523 }
+//  524 
+//  525 /*********************************************************************
+//  526  * @fn      SampleApp_SendFlashMessage
+//  527  *
+//  528  * @brief   Send the flash message to group 1.
+//  529  *
+//  530  * @param   flashTime - in milliseconds
+//  531  *
+//  532  * @return  none
+//  533  */
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-//  533 void SampleApp_SendFlashMessage( uint16 flashTime )
+//  534 void SampleApp_SendFlashMessage( uint16 flashTime )
 SampleApp_SendFlashMessage:
         CFI Block cfiBlock22 Using cfiCommon0
         CFI Function SampleApp_SendFlashMessage
         CODE
-//  534 {
+//  535 {
         FUNCALL SampleApp_SendFlashMessage, AF_DataRequest
         LOCFRAME ISTACK, 0, STACK
         LOCFRAME PSTACK, 0, STACK
@@ -2524,8 +2541,8 @@ SampleApp_SendFlashMessage:
         MOV     A,#-0x3
         LCALL   ?ALLOC_XSTACK8
         CFI CFA_XSP16 add(XSP16, 13)
-//  535   uint8 buffer[3];
-//  536   buffer[0] = (uint8)(SampleAppFlashCounter++);
+//  536   uint8 buffer[3];
+//  537   buffer[0] = (uint8)(SampleAppFlashCounter++);
         MOV     DPTR,#SampleAppFlashCounter
         LCALL   ??Subroutine5_0 & 0xFFFF
 ??CrossCallReturnLabel_3:
@@ -2533,24 +2550,24 @@ SampleApp_SendFlashMessage:
         MOVX    A,@DPTR
         INC     A
         MOVX    @DPTR,A
-//  537   buffer[1] = LO_UINT16( flashTime );
+//  538   buffer[1] = LO_UINT16( flashTime );
         MOV     A,#0x1
         LCALL   ?XSTACK_DISP0_8
         MOV     A,R2
         MOVX    @DPTR,A
-//  538   buffer[2] = HI_UINT16( flashTime );
+//  539   buffer[2] = HI_UINT16( flashTime );
         MOV     A,#0x2
         LCALL   ?XSTACK_DISP0_8
         MOV     A,R3
         LCALL   ?Subroutine4 & 0xFFFF
-//  539 
-//  540   if ( AF_DataRequest( &SampleApp_Flash_DstAddr, &SampleApp_epDesc,
-//  541                        SAMPLEAPP_FLASH_CLUSTERID,
-//  542                        3,
-//  543                        buffer,
-//  544                        &SampleApp_TransID,
-//  545                        AF_DISCV_ROUTE,
-//  546                        AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
+//  540 
+//  541   if ( AF_DataRequest( &SampleApp_Flash_DstAddr, &SampleApp_epDesc,
+//  542                        SAMPLEAPP_FLASH_CLUSTERID,
+//  543                        3,
+//  544                        buffer,
+//  545                        &SampleApp_TransID,
+//  546                        AF_DISCV_ROUTE,
+//  547                        AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
 ??CrossCallReturnLabel_1:
         LCALL   ?PUSH_XSTACK_I_ONE
         CFI CFA_XSP16 add(XSP16, 14)
@@ -2582,13 +2599,13 @@ SampleApp_SendFlashMessage:
         MOV     R3,#(SampleApp_Flash_DstAddr >> 8) & 0xff
         SJMP    ?Subroutine1
         CFI EndBlock cfiBlock22
-//  547   {
-//  548   }
-//  549   else
-//  550   {
-//  551     // Error occurred in request to send.
-//  552   }
-//  553 }
+//  548   {
+//  549   }
+//  550   else
+//  551   {
+//  552     // Error occurred in request to send.
+//  553   }
+//  554 }
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
 ?Subroutine4:
@@ -2651,15 +2668,15 @@ SampleApp_SendFlashMessage:
         CFI EndBlock cfiCond24
         CFI EndBlock cfiCond25
         CFI EndBlock cfiPicker26
-//  554 
+//  555 
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-//  555 void SampleApp_Send_P2P_Message(uint8 quality) 
+//  556 void SampleApp_Send_P2P_Message(uint8 quality) 
 SampleApp_Send_P2P_Message:
         CFI Block cfiBlock27 Using cfiCommon0
         CFI Function SampleApp_Send_P2P_Message
         CODE
-//  556 { 
+//  557 { 
         FUNCALL SampleApp_Send_P2P_Message, AF_DataRequest
         LOCFRAME ISTACK, 0, STACK
         LOCFRAME PSTACK, 0, STACK
@@ -2690,14 +2707,14 @@ SampleApp_Send_P2P_Message:
         MOV     A,#-0x3
         LCALL   ?ALLOC_XSTACK8
         CFI CFA_XSP16 add(XSP16, 13)
-//  557   
-//  558   uint8  strTemp[3];
-//  559   strTemp[0] = 111;
+//  558   
+//  559   uint8  strTemp[3];
+//  560   strTemp[0] = 111;
         MOV     DPL,?XSP + 0
         MOV     DPH,?XSP + 1
         MOV     A,#0x6f
         MOVX    @DPTR,A
-//  560   strTemp[1] = TXPOWER;
+//  561   strTemp[1] = TXPOWER;
         MOV     DPTR,#0x6190
         MOVX    A,@DPTR
         PUSH    A
@@ -2707,19 +2724,19 @@ SampleApp_Send_P2P_Message:
         POP     A
         CFI CFA_SP SP+0
         MOVX    @DPTR,A
-//  561   strTemp[2] = quality;
+//  562   strTemp[2] = quality;
         MOV     A,#0x2
         LCALL   ?XSTACK_DISP0_8
         MOV     A,R1
         LCALL   ?Subroutine4 & 0xFFFF
-//  562   
-//  563     if ( AF_DataRequest( &SampleApp_P2P_DstAddr, &SampleApp_epDesc, 
-//  564                           SAMPLEAPP_P2P_CLUSTERID, 
-//  565                           3, 
-//  566                           strTemp, 
-//  567                           &SampleApp_TransID, 
-//  568                           AF_DISCV_ROUTE, 
-//  569                           AF_DEFAULT_RADIUS ) == afStatus_SUCCESS ) 
+//  563   
+//  564     if ( AF_DataRequest( &SampleApp_P2P_DstAddr, &SampleApp_epDesc, 
+//  565                           SAMPLEAPP_P2P_CLUSTERID, 
+//  566                           3, 
+//  567                           strTemp, 
+//  568                           &SampleApp_TransID, 
+//  569                           AF_DISCV_ROUTE, 
+//  570                           AF_DEFAULT_RADIUS ) == afStatus_SUCCESS ) 
 ??CrossCallReturnLabel_2:
         LCALL   ?PUSH_XSTACK_I_ONE
         CFI CFA_XSP16 add(XSP16, 14)
@@ -2752,14 +2769,14 @@ SampleApp_Send_P2P_Message:
         CFI EndBlock cfiBlock27
         REQUIRE ?Subroutine1
         ; // Fall through to label ?Subroutine1
-//  570     { 
-//  571       
-//  572     }
-//  573     else 
-//  574     { 
-//  575         // Error occurred in request to send. 
-//  576     } 
-//  577 } 
+//  571     { 
+//  572       
+//  573     }
+//  574     else 
+//  575     { 
+//  576         // Error occurred in request to send. 
+//  577     } 
+//  578 } 
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
 ?Subroutine1:
@@ -2806,25 +2823,25 @@ SampleApp_Send_P2P_Message:
         MOV     R7,#0x2
         LJMP    ?BANKED_LEAVE_XDATA
         CFI EndBlock cfiBlock29
-//  578 /*********************************************************************
-//  579 *********************************************************************/
+//  579 /*********************************************************************
+//  580 *********************************************************************/
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-//  580 char abs(char x)
+//  581 char abs(char x)
 abs:
         CFI Block cfiBlock30 Using cfiCommon0
         CFI Function abs
         CODE
-//  581 {
+//  582 {
         ; Saved register size: 0
         ; Auto size: 0
-//  582   if(x>=0)
-//  583     return x;
+//  583   if(x>=0)
+//  584     return x;
         LJMP    ?BRET
         CFI EndBlock cfiBlock30
-//  584   else
-//  585     return -x;
-//  586 }
+//  585   else
+//  586     return -x;
+//  587 }
 
         RSEG XDATA_ID:CODE:NOROOT(0)
 `?<Initializer for ADDR>`:
@@ -2898,17 +2915,17 @@ abs:
 
         END
 // 
-// 1 168 bytes in segment BANKED_CODE
+// 1 170 bytes in segment BANKED_CODE
 //    48 bytes in segment BANK_RELAYS
-//     4 bytes in segment SFR_AN
+//     6 bytes in segment SFR_AN
 //     1 byte  in segment XDATA_I
 //     1 byte  in segment XDATA_ID
 //    31 bytes in segment XDATA_ROM_C
 //    69 bytes in segment XDATA_Z
 // 
-// 1 217 bytes of CODE  memory
+// 1 219 bytes of CODE  memory
 //    31 bytes of CONST memory
-//     0 bytes of DATA  memory (+ 4 bytes shared)
+//     0 bytes of DATA  memory (+ 6 bytes shared)
 //    70 bytes of XDATA memory
 //
 //Errors: none

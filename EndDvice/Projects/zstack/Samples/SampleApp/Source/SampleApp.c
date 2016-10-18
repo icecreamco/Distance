@@ -431,18 +431,20 @@ void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
         p0_4 -> 5
         p0_5 -> 6
         p0_6 -> 7
-        p1_7 -> 8
+        p2_0 -> 8
         */
+        P0DIR |= 0X73;
+        P1DIR |= 0X0c;
+        P2DIR |= 0x01;
         quality = pkt->LinkQuality;
         uint8 message[2];
         message[0] = TXPOWER;
         message[1] = quality;
         HalUARTWrite(0, message, 2);
-        quality=quality/32+1;
-          P0DIR|=0X73;
-          P1DIR|=0X8C;
+        quality = quality/32 + 1;
           P0 &= 0x8c;
-          P1 &= 0x73;
+          P1 &= 0xf2;
+          P2 &= 0xfe;
           switch(quality)
           {
             case 1:            
@@ -475,11 +477,10 @@ void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
               break;
             case 8:
               P0 |= 0x73;
-              P1 |= 0x8c;
+              P1 |= 0x0c;
+              P2 |= 0x01;
               break;
             default:
-              P0 |= 0x00;
-              P1 |= 0x00;
               break;
           }
           SampleApp_Send_P2P_Message(pkt->LinkQuality);
