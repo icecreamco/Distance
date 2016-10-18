@@ -17,6 +17,13 @@ UseTrigger=0
 TriggerName=main
 LimitSize=0
 ByteLimit=50
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
 [Breakpoints]
 Bp0=_ "STD_CODE" "{$PROJ_DIR$\..\..\..\..\..\Components\mac\low_level\srf04\mac_radio.c}.261.1@1" 0 0 0 0 "" 0 ""
 Bp1=_ "STD_CODE" "{$PROJ_DIR$\..\..\..\..\..\Components\mac\low_level\srf04\mac_radio.c}.344.1@1" 0 0 0 0 "" 0 ""
@@ -26,13 +33,6 @@ Count=4
 [ChipconEmu]
 Stop timers on halt=0
 Leave target running=1
-[Log file]
-LoggingEnabled=_ 0
-LogFile=_ ""
-Category=_ 0
-[TermIOLog]
-LoggingEnabled=_ 0
-LogFile=_ ""
 [Aliases]
 Count=0
 SuppressDialog=0
