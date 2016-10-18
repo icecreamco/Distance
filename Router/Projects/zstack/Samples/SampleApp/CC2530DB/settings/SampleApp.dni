@@ -1,5 +1,5 @@
 [DebugChecksum]
-Checksum=1167677510
+Checksum=-1233983931
 [DisAssemblyWindow]
 NumStates=_ 1
 State 1=_ 1
@@ -36,5 +36,7 @@ Leave target running=1
 [Aliases]
 A0=_ "C:\Users\boyangle\Desktop\带功放-距离\EndDvice\Components\osal\mcu\cc2530\OSAL_Math.s51" ""
 A1=_ "C:\Users\boyangle\Desktop\带功放-距离\EndDvice\Projects\zstack\ZMain\TI2530DB\chipcon_cstartup.s51" ""
-Count=2
+A2=_ "C:\Users\icecreamco\Desktop\带功放-距离\Router\Components\mt\MT_UART.c" ""
+A3=_ "C:\Users\icecreamco\Desktop\带功放-距离\Router\Projects\zstack\ZMain\TI2530DB\ZMain.c" "C:\Users\icecreamco\Desktop\Distance\Router\Projects\zstack\ZMain\TI2530DB\ZMain.c"
+Count=4
 SuppressDialog=0

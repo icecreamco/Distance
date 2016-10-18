@@ -163,7 +163,9 @@ void SampleApp_SendPeriodicMessage(uint8 ADR);
 void SampleApp_SendFlashMessage( uint16 flashTime );
 void SampleApp_Send_P2P_Message(uint8 level);
 char abs(char x);
-
+void led_init(void);
+void led_off(void);
+void led_show(uint8 level);
 /*********************************************************************
  * NETWORK LAYER CALLBACKS
  */
@@ -302,6 +304,8 @@ uint16 SampleApp_ProcessEvent( uint8 task_id, uint16 events )
             osal_start_timerEx( SampleApp_TaskID,
                               SAMPLEAPP_SEND_PERIODIC_MSG_EVT,
                               SAMPLEAPP_SEND_PERIODIC_MSG_TIMEOUT );
+              
+            led_init();
           }
           else
           {
@@ -391,6 +395,59 @@ void SampleApp_HandleKeys( uint8 shift, uint8 keys )
   }
 }
 
+void led_init() {
+  P0DIR |= 0X53;
+  P1DIR |= 0X0c;
+  P2DIR |= 0x03;
+}
+
+void led_off() {
+	P0 &= ~0X53;
+  	P1 &= ~0X0c;
+  	P2 &= ~0x03;
+}
+/* 
+        p0_0 -> 1
+        p0_1 -> 2
+        p1_2 -> 3
+        p1_3 -> 4
+        p0_4 -> 5
+        p0_6 -> 6
+        p2_0 -> 7
+        p2_1 -> 8
+        */
+void led_show(uint8 level) {
+  	switch(level) {
+  		case 1:
+    		P0_0 = 1;
+      		break;
+    	case 2:
+		  	P0_1 = 1;
+    		break;
+    	case 3:
+		  	P1_2 = 1;
+    		break;
+    	case 4:
+		  	P1_3 = 1;
+    		break;
+    	case 5:
+		  	P0_4 = 1;
+    		break;
+    	case 6:
+		  	P0_6 = 1;
+    		break;
+    	case 7:
+		  	P2_0 = 1;
+    		break;
+    	case 8:
+		  	P2_1 = 1;
+    		break;
+    	default:
+    		return;
+ 	 }
+	led_show(level - 1);
+}
+
 /*********************************************************************
  * LOCAL FUNCTIONS
  */
@@ -415,70 +472,18 @@ void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
   {
     case SAMPLEAPP_PERIODIC_CLUSTERID:
       osal_memcpy(data,pkt->cmd.Data,pkt->cmd.DataLength);
-      
       if ( data[0]=='A' && data[1]=='B' && data[2]=='C' && data[3]=='D' )
       {
-        /* 
-        p0_0 -> 1
-        p0_1 -> 2
-        p1_2 -> 3
-        p1_3 -> 4
-        p0_4 -> 5
-        p0_5 -> 6
-        p0_6 -> 7
-        p2_0 -> 8
-        */
-        P0DIR |= 0X73;
-        P1DIR |= 0X0c;
-        P2DIR |= 0x01;
+        
         quality = pkt->LinkQuality;
         uint8 message[2];
         message[0] = TXPOWER;
         message[1] = quality;
         HalUARTWrite(0, message, 2);
         quality = quality/32 + 1;
-          P0 &= 0x8c;
-          P1 &= 0xf2;
-          P2 &= 0xfe;
-          switch(quality)
-          {
-            case 1:            
-              P0 |= 0x01;            
-              P1 |= 0x00;
-              break;
-            case 2:
-              P0 |= 0x03;
-              P1 |= 0x00;
-              break;
-            case 3:
-              P0 |= 0x03;
-              P1 |= 0x04;
-              break;
-            case 4:
-              P0 |= 0x03;
-              P1 |= 0x0c;
-              break;
-            case 5:
-              P0 |= 0x13;
-              P1 |= 0x0c;
-              break;
-            case 6:
-              P0 |= 0x33;
-              P1 |= 0x0c;
-              break;
-            case 7:
-              P0 |= 0x73;
-              P1 |= 0x0c;
-              break;
-            case 8:
-              P0 |= 0x73;
-              P1 |= 0x0c;
-              P2 |= 0x01;
-              break;
-            default:
-              break;
-          }
-          SampleApp_Send_P2P_Message(pkt->LinkQuality);
+         led_off();
+		 led_show(quality);
+         SampleApp_Send_P2P_Message(pkt->LinkQuality);
       }
       break;
       

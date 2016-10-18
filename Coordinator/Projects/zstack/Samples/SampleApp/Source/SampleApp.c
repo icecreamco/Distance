@@ -435,7 +435,9 @@ void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
        {
             HalLedBlink( HAL_LED_1, 2, 50, 150 );
        }
-      HalUARTWrite(0, message, 4);
+       message[0] = pkt->srcAddr.addr.shortAddr / 256;
+       message[1] = pkt->srcAddr.addr.shortAddr % 256;
+       HalUARTWrite(0, message, 2);
       break;  
       
     case SAMPLEAPP_FLASH_CLUSTERID:

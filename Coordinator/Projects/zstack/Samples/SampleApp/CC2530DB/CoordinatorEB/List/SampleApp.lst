@@ -1,6 +1,6 @@
 ###############################################################################
 #                                                                             #
-# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         18/Oct/2016  16:42:35 #
+# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         18/Oct/2016  22:34:14 #
 # Copyright 2004-2011 IAR Systems AB.                                         #
 #                                                                             #
 #    Core               =  plain                                              #
@@ -447,7 +447,7 @@ C:\Users\icecreamco\Desktop\Distance\Coordinator\Projects\zstack\Samples\SampleA
     193            uint8 power = TXPOWER;
    \   000030   12....       LCALL   ?Subroutine2 & 0xFFFF
     194            HalUARTWrite(0,&power,1);
-   \                     ??CrossCallReturnLabel_3:
+   \                     ??CrossCallReturnLabel_4:
    \   000033                ; Setup parameters for call to function HalUARTWrite
    \   000033   7C01         MOV     R4,#0x1
    \   000035   7D00         MOV     R5,#0x0
@@ -1046,7 +1046,7 @@ Warning[Pe546]: transfer of control bypasses initialization of:
     423                 message[0] = TXPOWER;
    \   000082   12....       LCALL   ?Subroutine2 & 0xFFFF
     424                 message[1] = quality;
-   \                     ??CrossCallReturnLabel_4:
+   \                     ??CrossCallReturnLabel_5:
    \   000085   7401         MOV     A,#0x1
    \   000087   12....       LCALL   ?XSTACK_DISP0_8
    \   00008A   E8           MOV     A,R0
@@ -1114,64 +1114,85 @@ Warning[Pe546]: transfer of control bypasses initialization of:
    \   0000D9   7901         MOV     R1,#0x1
    \   0000DB   12....       LCALL   ??HalLedBlink?relay
     437                 }
-    438                HalUARTWrite(0, message, 4);
+    438                 message[0] = pkt->srcAddr.addr.shortAddr / 256;
    \                     ??SampleApp_MessageMSGCB_4:
-   \   0000DE                ; Setup parameters for call to function HalUARTWrite
-   \   0000DE   7C04         MOV     R4,#0x4
-   \   0000E0   7D00         MOV     R5,#0x0
-   \   0000E2   85..82       MOV     DPL,?XSP + 0
-   \   0000E5   85..83       MOV     DPH,?XSP + 1
-   \   0000E8   AA82         MOV     R2,DPL
-   \   0000EA   AB83         MOV     R3,DPH
-   \   0000EC   7900         MOV     R1,#0x0
-   \   0000EE   12....       LCALL   ??HalUARTWrite?relay
-    439                break;  
-   \   0000F1   8033         SJMP    ??SampleApp_MessageMSGCB_0
-    440                
-    441              case SAMPLEAPP_FLASH_CLUSTERID:
-    442                flashTime = BUILD_UINT16(pkt->cmd.Data[1], pkt->cmd.Data[2] );
-    443                HalLedBlink( HAL_LED_4, 4, 50, (flashTime / 4) );
+   \   0000DE   EE           MOV     A,R6
+   \   0000DF   2406         ADD     A,#0x6
+   \   0000E1   F8           MOV     R0,A
+   \   0000E2   EF           MOV     A,R7
+   \   0000E3   3400         ADDC    A,#0x0
+   \   0000E5   F9           MOV     R1,A
+   \   0000E6   8882         MOV     DPL,R0
+   \   0000E8   8983         MOV     DPH,R1
+   \   0000EA   A3           INC     DPTR
+   \   0000EB   12....       LCALL   ??Subroutine4_0 & 0xFFFF
+    439                 message[1] = pkt->srcAddr.addr.shortAddr % 256;
+   \                     ??CrossCallReturnLabel_2:
+   \   0000EE   8882         MOV     DPL,R0
+   \   0000F0   8983         MOV     DPH,R1
+   \   0000F2   E0           MOVX    A,@DPTR
+   \   0000F3   C0E0         PUSH    A
+   \   0000F5   7401         MOV     A,#0x1
+   \   0000F7   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000FA   D0E0         POP     A
+   \   0000FC   F0           MOVX    @DPTR,A
+    440                 HalUARTWrite(0, message, 2);
+   \   0000FD                ; Setup parameters for call to function HalUARTWrite
+   \   0000FD   7C02         MOV     R4,#0x2
+   \   0000FF   7D00         MOV     R5,#0x0
+   \   000101   85..82       MOV     DPL,?XSP + 0
+   \   000104   85..83       MOV     DPH,?XSP + 1
+   \   000107   AA82         MOV     R2,DPL
+   \   000109   AB83         MOV     R3,DPH
+   \   00010B   7900         MOV     R1,#0x0
+   \   00010D   12....       LCALL   ??HalUARTWrite?relay
+    441                break;  
+   \   000110   8033         SJMP    ??SampleApp_MessageMSGCB_0
+    442                
+    443              case SAMPLEAPP_FLASH_CLUSTERID:
+    444                flashTime = BUILD_UINT16(pkt->cmd.Data[1], pkt->cmd.Data[2] );
+    445                HalLedBlink( HAL_LED_4, 4, 50, (flashTime / 4) );
    \                     ??SampleApp_MessageMSGCB_1:
-   \   0000F3   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \   000112   12....       LCALL   ?Subroutine3 & 0xFFFF
    \                     ??CrossCallReturnLabel_1:
-   \   0000F6   F8           MOV     R0,A
-   \   0000F7   A3           INC     DPTR
-   \   0000F8   E0           MOVX    A,@DPTR
-   \   0000F9   F9           MOV     R1,A
-   \   0000FA                ; Setup parameters for call to function HalLedBlink
-   \   0000FA   8882         MOV     DPL,R0
-   \   0000FC   8983         MOV     DPH,R1
-   \   0000FE   A3           INC     DPTR
-   \   0000FF   E0           MOVX    A,@DPTR
-   \   000100   FA           MOV     R2,A
-   \   000101   8882         MOV     DPL,R0
-   \   000103   8983         MOV     DPH,R1
-   \   000105   A3           INC     DPTR
-   \   000106   A3           INC     DPTR
-   \   000107   E0           MOVX    A,@DPTR
-   \   000108   F9           MOV     R1,A
-   \   000109   EA           MOV     A,R2
-   \   00010A   2400         ADD     A,#0x0
-   \   00010C   F5..         MOV     ?V0 + 0,A
-   \   00010E   E4           CLR     A
-   \   00010F   39           ADDC    A,R1
-   \   000110   F5..         MOV     ?V0 + 1,A
-   \   000112   7402         MOV     A,#0x2
-   \   000114   78..         MOV     R0,#?V0 + 0
-   \   000116   12....       LCALL   ?US_SHR
-   \   000119   AC..         MOV     R4,?V0 + 0
-   \   00011B   AD..         MOV     R5,?V0 + 1
-   \   00011D   7B32         MOV     R3,#0x32
-   \   00011F   7A04         MOV     R2,#0x4
-   \   000121   7908         MOV     R1,#0x8
-   \   000123   12....       LCALL   ??HalLedBlink?relay
-    444                break;
-    445            }
-    446          }
+   \   000115   F8           MOV     R0,A
+   \   000116   A3           INC     DPTR
+   \   000117   E0           MOVX    A,@DPTR
+   \   000118   F9           MOV     R1,A
+   \   000119                ; Setup parameters for call to function HalLedBlink
+   \   000119   8882         MOV     DPL,R0
+   \   00011B   8983         MOV     DPH,R1
+   \   00011D   A3           INC     DPTR
+   \   00011E   E0           MOVX    A,@DPTR
+   \   00011F   FA           MOV     R2,A
+   \   000120   8882         MOV     DPL,R0
+   \   000122   8983         MOV     DPH,R1
+   \   000124   A3           INC     DPTR
+   \   000125   A3           INC     DPTR
+   \   000126   E0           MOVX    A,@DPTR
+   \   000127   F9           MOV     R1,A
+   \   000128   EA           MOV     A,R2
+   \   000129   2400         ADD     A,#0x0
+   \   00012B   F5..         MOV     ?V0 + 0,A
+   \   00012D   E4           CLR     A
+   \   00012E   39           ADDC    A,R1
+   \   00012F   F5..         MOV     ?V0 + 1,A
+   \   000131   7402         MOV     A,#0x2
+   \   000133   78..         MOV     R0,#?V0 + 0
+   \   000135   12....       LCALL   ?US_SHR
+   \   000138   AC..         MOV     R4,?V0 + 0
+   \   00013A   AD..         MOV     R5,?V0 + 1
+   \   00013C   7B32         MOV     R3,#0x32
+   \   00013E   7A04         MOV     R2,#0x4
+   \   000140   7908         MOV     R1,#0x8
+   \   000142   12....       LCALL   ??HalLedBlink?relay
+    446                break;
+    447            }
+    448          }
    \                     ??SampleApp_MessageMSGCB_0:
-   \   000126   7416         MOV     A,#0x16
-   \   000128   02....       LJMP    ?Subroutine0 & 0xFFFF
-   \   00012B                REQUIRE _A_P1
+   \   000145   7416         MOV     A,#0x16
+   \   000147   02....       LJMP    ?Subroutine0 & 0xFFFF
+   \   00014A                REQUIRE _A_P1
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
    \                     ?Subroutine3:
@@ -1183,28 +1204,28 @@ Warning[Pe546]: transfer of control bypasses initialization of:
    \   000008   F583         MOV     DPH,A
    \   00000A   E0           MOVX    A,@DPTR
    \   00000B   22           RET
-    447          
-    448          /*********************************************************************
-    449           * @fn      SampleApp_SendPeriodicMessage
-    450           *
-    451           * @brief   Send the periodic message.
+    449          
+    450          /*********************************************************************
+    451           * @fn      SampleApp_SendPeriodicMessage
     452           *
-    453           * @param   none
+    453           * @brief   Send the periodic message.
     454           *
-    455           * @return  none
-    456           */
+    455           * @param   none
+    456           *
+    457           * @return  none
+    458           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    457          void SampleApp_SendPeriodicMessage()
+    459          void SampleApp_SendPeriodicMessage()
    \                     SampleApp_SendPeriodicMessage:
-    458          {
+    460          {
    \   000000   74F6         MOV     A,#-0xa
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 10
    \   000005                ; Auto size: 5
    \   000005   74FB         MOV     A,#-0x5
    \   000007   12....       LCALL   ?ALLOC_XSTACK8
-    459            uint8 data[]="ABCD";
+    461            uint8 data[]="ABCD";
    \   00000A   85..82       MOV     DPL,?XSP + 0
    \   00000D   85..83       MOV     DPH,?XSP + 1
    \   000010   AC82         MOV     R4,DPL
@@ -1213,14 +1234,14 @@ Warning[Pe546]: transfer of control bypasses initialization of:
    \   000017   7582..       MOV     DPL,#`?<Constant "ABCD">` & 0xff
    \   00001A   7405         MOV     A,#0x5
    \   00001C   12....       LCALL   ?MOVE_LONG8_XDATA_XDATA
-    460          
-    461            if ( AF_DataRequest( &SampleApp_Periodic_DstAddr, &SampleApp_epDesc,
-    462                                 SAMPLEAPP_PERIODIC_CLUSTERID,
-    463                                 4,
-    464                                 data,
-    465                                 &SampleApp_TransID,
-    466                                 AF_DISCV_ROUTE,
-    467                                 AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
+    462          
+    463            if ( AF_DataRequest( &SampleApp_Periodic_DstAddr, &SampleApp_epDesc,
+    464                                 SAMPLEAPP_PERIODIC_CLUSTERID,
+    465                                 4,
+    466                                 data,
+    467                                 &SampleApp_TransID,
+    468                                 AF_DISCV_ROUTE,
+    469                                 AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
    \   00001F                ; Setup parameters for call to function AF_DataRequest
    \   00001F   75..1E       MOV     ?V0 + 0,#0x1e
    \   000022   78..         MOV     R0,#?V0 + 0
@@ -1250,14 +1271,14 @@ Warning[Pe546]: transfer of control bypasses initialization of:
    \   00005F   12....       LCALL   ??AF_DataRequest?relay
    \   000062   7409         MOV     A,#0x9
    \   000064   12....       LCALL   ?DEALLOC_XSTACK8
-    468            {
-    469            }
-    470            else
-    471            {
-    472                // Error occurred in request to send.
-    473            }
-    474          
-    475          }
+    470            {
+    471            }
+    472            else
+    473            {
+    474                // Error occurred in request to send.
+    475            }
+    476          
+    477          }
    \   000067   7405         MOV     A,#0x5
    \   000069   02....       LJMP    ?Subroutine1 & 0xFFFF
 
@@ -1266,54 +1287,54 @@ Warning[Pe546]: transfer of control bypasses initialization of:
    \   000000   12....       LCALL   ?DEALLOC_XSTACK8
    \   000003                REQUIRE ??Subroutine5_0
    \   000003                ; // Fall through to label ??Subroutine5_0
-    476          
-    477          /*********************************************************************
-    478           * @fn      SampleApp_SendFlashMessage
-    479           *
-    480           * @brief   Send the flash message to group 1.
+    478          
+    479          /*********************************************************************
+    480           * @fn      SampleApp_SendFlashMessage
     481           *
-    482           * @param   flashTime - in milliseconds
+    482           * @brief   Send the flash message to group 1.
     483           *
-    484           * @return  none
-    485           */
+    484           * @param   flashTime - in milliseconds
+    485           *
+    486           * @return  none
+    487           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    486          void SampleApp_SendFlashMessage( uint16 flashTime )
+    488          void SampleApp_SendFlashMessage( uint16 flashTime )
    \                     SampleApp_SendFlashMessage:
-    487          {
+    489          {
    \   000000   74F6         MOV     A,#-0xa
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 10
    \   000005                ; Auto size: 3
    \   000005   74FD         MOV     A,#-0x3
    \   000007   12....       LCALL   ?ALLOC_XSTACK8
-    488            uint8 buffer[3];
-    489            buffer[0] = (uint8)(SampleAppFlashCounter++);
+    490            uint8 buffer[3];
+    491            buffer[0] = (uint8)(SampleAppFlashCounter++);
    \   00000A   90....       MOV     DPTR,#SampleAppFlashCounter
    \   00000D   12....       LCALL   ??Subroutine4_0 & 0xFFFF
-   \                     ??CrossCallReturnLabel_2:
+   \                     ??CrossCallReturnLabel_3:
    \   000010   90....       MOV     DPTR,#SampleAppFlashCounter
    \   000013   E0           MOVX    A,@DPTR
    \   000014   04           INC     A
    \   000015   F0           MOVX    @DPTR,A
-    490            buffer[1] = LO_UINT16( flashTime );
+    492            buffer[1] = LO_UINT16( flashTime );
    \   000016   7401         MOV     A,#0x1
    \   000018   12....       LCALL   ?XSTACK_DISP0_8
    \   00001B   EA           MOV     A,R2
    \   00001C   F0           MOVX    @DPTR,A
-    491            buffer[2] = HI_UINT16( flashTime );
+    493            buffer[2] = HI_UINT16( flashTime );
    \   00001D   7402         MOV     A,#0x2
    \   00001F   12....       LCALL   ?XSTACK_DISP0_8
    \   000022   EB           MOV     A,R3
    \   000023   F0           MOVX    @DPTR,A
-    492          
-    493            if ( AF_DataRequest( &SampleApp_Flash_DstAddr, &SampleApp_epDesc,
-    494                                 SAMPLEAPP_FLASH_CLUSTERID,
-    495                                 3,
-    496                                 buffer,
-    497                                 &SampleApp_TransID,
-    498                                 AF_DISCV_ROUTE,
-    499                                 AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
+    494          
+    495            if ( AF_DataRequest( &SampleApp_Flash_DstAddr, &SampleApp_epDesc,
+    496                                 SAMPLEAPP_FLASH_CLUSTERID,
+    497                                 3,
+    498                                 buffer,
+    499                                 &SampleApp_TransID,
+    500                                 AF_DISCV_ROUTE,
+    501                                 AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
    \   000024                ; Setup parameters for call to function AF_DataRequest
    \   000024   75..1E       MOV     ?V0 + 0,#0x1e
    \   000027   78..         MOV     R0,#?V0 + 0
@@ -1343,41 +1364,41 @@ Warning[Pe546]: transfer of control bypasses initialization of:
    \   000064   12....       LCALL   ??AF_DataRequest?relay
    \   000067   7409         MOV     A,#0x9
    \   000069   12....       LCALL   ?DEALLOC_XSTACK8
-    500            {
-    501            }
-    502            else
-    503            {
-    504              // Error occurred in request to send.
-    505            }
-    506          }
+    502            {
+    503            }
+    504            else
+    505            {
+    506              // Error occurred in request to send.
+    507            }
+    508          }
    \   00006C   7403         MOV     A,#0x3
    \   00006E   80..         SJMP    ?Subroutine1
-    507          
+    509          
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    508          void SampleApp_Send_P2P_Message(uint8* dat, uint8 n, uint16 shortaddr) 
+    510          void SampleApp_Send_P2P_Message(uint8* dat, uint8 n, uint16 shortaddr) 
    \                     SampleApp_Send_P2P_Message:
-    509          {   
+    511          {   
    \   000000   74F6         MOV     A,#-0xa
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 10
    \   000005                ; Auto size: 0
    \   000005   E9           MOV     A,R1
    \   000006   FE           MOV     R6,A
-    510            SampleApp_P2P_DstAddr.addr.shortAddr = shortaddr;
+    512            SampleApp_P2P_DstAddr.addr.shortAddr = shortaddr;
    \   000007   90....       MOV     DPTR,#SampleApp_P2P_DstAddr
    \   00000A   EC           MOV     A,R4
    \   00000B   F0           MOVX    @DPTR,A
    \   00000C   A3           INC     DPTR
    \   00000D   ED           MOV     A,R5
    \   00000E   F0           MOVX    @DPTR,A
-    511            if ( AF_DataRequest( &SampleApp_P2P_DstAddr, &SampleApp_epDesc, 
-    512                                  SAMPLEAPP_P2P_CLUSTERID, 
-    513                                  n, 
-    514                                  dat, 
-    515                                  &SampleApp_TransID, 
-    516                                  AF_DISCV_ROUTE, 
-    517                                  AF_DEFAULT_RADIUS ) == afStatus_SUCCESS ) 
+    513            if ( AF_DataRequest( &SampleApp_P2P_DstAddr, &SampleApp_epDesc, 
+    514                                  SAMPLEAPP_P2P_CLUSTERID, 
+    515                                  n, 
+    516                                  dat, 
+    517                                  &SampleApp_TransID, 
+    518                                  AF_DISCV_ROUTE, 
+    519                                  AF_DEFAULT_RADIUS ) == afStatus_SUCCESS ) 
    \   00000F                ; Setup parameters for call to function AF_DataRequest
    \   00000F   75..1E       MOV     ?V0 + 0,#0x1e
    \   000012   78..         MOV     R0,#?V0 + 0
@@ -1406,15 +1427,15 @@ Warning[Pe546]: transfer of control bypasses initialization of:
    \   00004A   7409         MOV     A,#0x9
    \   00004C                REQUIRE ?Subroutine1
    \   00004C                ; // Fall through to label ?Subroutine1
-    518            { 
-    519            }
-    520          
-    521          
-    522            else 
-    523            { 
-    524                // Error occurred in request to send. 
-    525            } 
-    526          } 
+    520            { 
+    521            }
+    522          
+    523          
+    524            else 
+    525            { 
+    526                // Error occurred in request to send. 
+    527            } 
+    528          } 
 
    \                                 In  segment XDATA_ID, align 1, keep-with-next
    \                     `?<Initializer for ADDR>`:
@@ -1479,8 +1500,8 @@ Warning[Pe546]: transfer of control bypasses initialization of:
    \                     `?<Constant "ABCD">`:
    \   000000   41424344     DB "ABCD"
    \            00      
-    527          /*********************************************************************
-    528          *********************************************************************/
+    529          /*********************************************************************
+    530          *********************************************************************/
 
    Maximum stack usage in bytes:
 
@@ -1552,7 +1573,7 @@ Warning[Pe546]: transfer of control bypasses initialization of:
      SampleApp_ProcessEvent                 173
      SampleApp_HandleKeys                    62
      ??Subroutine5_0                          5
-     SampleApp_MessageMSGCB                 299
+     SampleApp_MessageMSGCB                 330
      ?Subroutine3                            12
      SampleApp_SendPeriodicMessage          108
      ?Subroutine1                             3
@@ -1572,7 +1593,7 @@ Warning[Pe546]: transfer of control bypasses initialization of:
      ?<Constant "ABCD">                       5
 
  
- 1 077 bytes in segment BANKED_CODE
+ 1 108 bytes in segment BANKED_CODE
     42 bytes in segment BANK_RELAYS
      1 byte  in segment SFR_AN
      1 byte  in segment XDATA_I
@@ -1580,7 +1601,7 @@ Warning[Pe546]: transfer of control bypasses initialization of:
     56 bytes in segment XDATA_ROM_C
     68 bytes in segment XDATA_Z
  
- 1 120 bytes of CODE  memory
+ 1 151 bytes of CODE  memory
     56 bytes of CONST memory
      0 bytes of DATA  memory (+ 1 byte shared)
     69 bytes of XDATA memory

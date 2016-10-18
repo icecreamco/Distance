@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                            /
-// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        04/Aug/2014  09:59:02 /
+// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        18/Oct/2016  22:30:34 /
 // Copyright 2004-2011 IAR Systems AB.                                        /
 //                                                                            /
 //    Core               =  plain                                             /
@@ -9,21 +9,21 @@
 //    Calling convention =  xdata reentrant                                   /
 //    Constant location  =  data_rom                                          /
 //    Dptr setup         =  1,16                                              /
-//    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Compone /
-//                          nts\mac\low_level\srf04\single_chip\mac_radio_def /
-//                          s.c                                               /
-//    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Pro /
-//                          jects\zstack\Samples\SampleApp\CC2530DB\..\..\..\ /
-//                          Tools\CC2530DB\f8wCoord.cfg" (-DCPU32MHZ          /
+//    Source file        =  C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Components\mac\low_level\srf04\single_chip\mac_ra /
+//                          dio_defs.c                                        /
+//    Command line       =  -f C:\Users\icecreamco\Desktop\Distance\Coordinat /
+//                          or\Projects\zstack\Samples\SampleApp\CC2530DB\..\ /
+//                          ..\..\Tools\CC2530DB\f8wCoord.cfg (-DCPU32MHZ     /
 //                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TR /
 //                          UE -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8     /
 //                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)   /
-//                          -f "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Pro /
-//                          jects\zstack\Samples\SampleApp\CC2530DB\..\..\..\ /
-//                          Tools\CC2530DB\f8wConfig.cfg" (-DZIGBEEPRO        /
+//                          -f C:\Users\icecreamco\Desktop\Distance\Coordinat /
+//                          or\Projects\zstack\Samples\SampleApp\CC2530DB\..\ /
+//                          ..\..\Tools\CC2530DB\f8wConfig.cfg (-DZIGBEEPRO   /
 //                          -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR      /
 //                          -DDEFAULT_CHANLIST=0x00000800                     /
-//                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                      /
+//                          -DZDAPP_CONFIG_PAN_ID=0x1234                      /
 //                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
 //                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
 //                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
@@ -43,88 +43,88 @@
 //                          __code" -DGENERIC=__generic                       /
 //                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
 //                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
-//                          -DREJOIN_POLL_RATE=440 "C:\Texas                  /
-//                          Instruments\ZStack-CC2530-2.5.1a\Components\mac\l /
-//                          ow_level\srf04\single_chip\mac_radio_defs.c" -D   /
-//                          xBUILD_ALL_DEVICES -D xHOLD_AUTO_START -D         /
-//                          xLCD_SUPPORTED -D xHAL_UART=FALSE -D ZIGBEEPRO    /
-//                          -D ZTOOL_P1 -lC "C:\Texas                         /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\DemoEB\List\" -lA      /
-//                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projec /
-//                          ts\zstack\Samples\SampleApp\CC2530DB\DemoEB\List\ /
-//                          " --diag_suppress Pe001,Pa010 -o "C:\Texas        /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\DemoEB\Obj\" -e        /
-//                          --no_code_motion --debug --core=plain             /
+//                          -DREJOIN_POLL_RATE=440 C:\Users\icecreamco\Deskto /
+//                          p\Distance\Coordinator\Components\mac\low_level\s /
+//                          rf04\single_chip\mac_radio_defs.c -D              /
+//                          BUILD_ALL_DEVICES -D HOLD_AUTO_START -D           /
+//                          LCD_SUPPORTED -D HAL_UART=FALSE -lC               /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\DemoEB /
+//                          \List\ -lA C:\Users\icecreamco\Desktop\Distance\C /
+//                          oordinator\Projects\zstack\Samples\SampleApp\CC25 /
+//                          30DB\DemoEB\List\ --diag_suppress Pe001,Pa010 -o  /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\DemoEB /
+//                          \Obj\ -e --no_code_motion --debug --core=plain    /
 //                          --dptr=16,1 --data_model=large                    /
 //                          --code_model=banked --calling_convention=xdata_re /
 //                          entrant --place_constants=data_rom                /
-//                          --nr_virtual_regs 16 -I "C:\Texas                 /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\" -I "C:\Texas         /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\Source\" -I         /
-//                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projec /
-//                          ts\zstack\Samples\SampleApp\CC2530DB\..\..\..\ZMa /
-//                          in\TI2530DB\" -I "C:\Texas                        /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\hal\include\" -I "C:\Texas                    /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\hal\target\CC2530EB\" -I "C:\Texas            /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\mac\include\" -I "C:\Texas                    /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\mac\high_level\" -I "C:\Texas                 /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\mac\low_level\srf04\" -I "C:\Texas            /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\mac\low_level\srf04\single_chip\" -I          /
-//                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projec /
-//                          ts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ /
-//                          ..\Components\mt\" -I "C:\Texas                   /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\osal\include\" -I "C:\Texas                   /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\services\saddr\" -I "C:\Texas                 /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\services\sdata\" -I "C:\Texas                 /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\stack\af\" -I "C:\Texas                       /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\stack\nwk\" -I "C:\Texas                      /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\stack\sapi\" -I "C:\Texas                     /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\stack\sec\" -I "C:\Texas                      /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\stack\sys\" -I "C:\Texas                      /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\stack\zdo\" -I "C:\Texas                      /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\zmac\" -I "C:\Texas                           /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\zmac\f8w\" -Ohz --require_prototypes          /
-//    List file          =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project /
-//                          s\zstack\Samples\SampleApp\CC2530DB\DemoEB\List\m /
-//                          ac_radio_defs.s51                                 /
+//                          --nr_virtual_regs 16 -I                           /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\ -I    /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\Sou /
+//                          rce\ -I C:\Users\icecreamco\Desktop\Distance\Coor /
+//                          dinator\Projects\zstack\Samples\SampleApp\CC2530D /
+//                          B\..\..\..\ZMain\TI2530DB\ -I                     /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\hal\include\ -I               /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\hal\target\CC2530EB\ -I       /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\mac\include\ -I               /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\mac\high_level\ -I            /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\mac\low_level\srf04\ -I       /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\mac\low_level\srf04\single_ch /
+//                          ip\ -I C:\Users\icecreamco\Desktop\Distance\Coord /
+//                          inator\Projects\zstack\Samples\SampleApp\CC2530DB /
+//                          \..\..\..\..\..\Components\mt\ -I                 /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\osal\include\ -I              /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\services\saddr\ -I            /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\services\sdata\ -I            /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\stack\af\ -I                  /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\stack\nwk\ -I                 /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\stack\sapi\ -I                /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\stack\sec\ -I                 /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\stack\sys\ -I                 /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\stack\zdo\ -I                 /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\zmac\ -I                      /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\zmac\f8w\ -Ohz                /
+//                          --require_prototypes                              /
+//    List file          =  C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\DemoEB /
+//                          \List\mac_radio_defs.s51                          /
 //                                                                            /
 //                                                                            /
 ///////////////////////////////////////////////////////////////////////////////
@@ -150,6 +150,7 @@
 
         EXTERN ?BDISPATCH
         EXTERN ?BRET
+        EXTERN __INIT_XDATA_Z
 
         PUBLIC ??MAC_SetRadioRegTable?relay
         FUNCTION ??MAC_SetRadioRegTable?relay,0203H
@@ -160,7 +161,14 @@
         PUBLIC MAC_SetRadioRegTable
         FUNCTION MAC_SetRadioRegTable,0203H
         ARGFRAME XSTACK, 0, STACK
-        PUBLIC macRadioDefsTxPwrBare
+        LOCFRAME ISTACK, 2, STACK
+        PUBWEAK P1DIR
+        PUBWEAK P1SEL
+        PUBWEAK _A_P1
+        PUBLIC macRadioDefsRefTableId
+        PUBLIC macRadioDefsRssiAdj
+        PUBLIC macRadioDefsTxPwrCC2591
+        PUBLIC macRadioDefsTxPwrTables
         PUBLIC macRadioTurnOffPower
         FUNCTION macRadioTurnOffPower,0203H
         ARGFRAME XSTACK, 0, STACK
@@ -279,7 +287,7 @@ macRadioTurnOnPower SYMBOL "macRadioTurnOnPower"
         EXTERN macChipVersion
         EXTERN macPib
 
-// C:\Texas Instruments\ZStack-CC2530-2.5.1a\Components\mac\low_level\srf04\single_chip\mac_radio_defs.c
+// C:\Users\icecreamco\Desktop\Distance\Coordinator\Components\mac\low_level\srf04\single_chip\mac_radio_defs.c
 //    1 /**************************************************************************************************
 //    2   Filename:       mac_radio_defs.c
 //    3   Revised:        $Date: 2010-12-23 14:50:47 -0800 (Thu, 23 Dec 2010) $
@@ -304,7 +312,7 @@ macRadioTurnOnPower SYMBOL "macRadioTurnOnPower"
 //   22   its documentation for any purpose.
 //   23 
 //   24   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
-//   25   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   25   PROVIDED “AS IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
 //   26   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
 //   27   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
 //   28   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
@@ -324,6 +332,24 @@ macRadioTurnOnPower SYMBOL "macRadioTurnOnPower"
 //   42  * ------------------------------------------------------------------------------------------------
 //   43  */
 //   44 #include "mac_radio_defs.h"
+
+        ASEGN SFR_AN:DATA:NOROOT,090H
+// union <unnamed> volatile __sfr _A_P1
+_A_P1:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0f4H
+// unsigned char volatile __sfr P1SEL
+P1SEL:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0feH
+// unsigned char volatile __sfr P1DIR
+P1DIR:
+        DATA8
+        DS 1
 //   45 #include "hal_types.h"
 //   46 #include "hal_assert.h"
 //   47 #include "hal_mcu.h"
@@ -370,39 +396,7 @@ macRadioTurnOnPower SYMBOL "macRadioTurnOnPower"
 //   88   /* -21 dBm */   0x0C
 //   89 };
 //   90 #else /* HAL_MCU_CC2533 */
-
-        RSEG CODE_C:CODE:REORDER:NOROOT(0)
-        DATA8
 //   91 const uint8 CODE macRadioDefsTxPwrBare[] =
-macRadioDefsTxPwrBare:
-        DB 3
-        DB 234
-        DB 245
-        DB 229
-        DB 213
-        DB 213
-        DB 197
-        DB 181
-        DB 165
-        DB 149
-        DB 149
-        DB 133
-        DB 133
-        DB 117
-        DB 117
-        DB 101
-        DB 101
-        DB 85
-        DB 85
-        DB 69
-        DB 69
-        DB 53
-        DB 53
-        DB 37
-        DB 37
-        DB 21
-        DB 21
-        DB 5
 //   92 {
 //   93   3,  /* tramsmit power level of the first entry */
 //   94   (uint8)(int8)-22, /* transmit power level of the last entry */
@@ -438,7 +432,24 @@ macRadioDefsTxPwrBare:
 //  124           (!defined HAL_PA_LNA && !defined HAL_PA_LNA_CC2590) */
 //  125 
 //  126 #if defined HAL_PA_LNA || defined MAC_RUNTIME_CC2591
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
 //  127 const uint8 CODE macRadioDefsTxPwrCC2591[] =
+macRadioDefsTxPwrCC2591:
+        DB 20
+        DB 10
+        DB 229
+        DB 213
+        DB 197
+        DB 181
+        DB 165
+        DB 165
+        DB 149
+        DB 133
+        DB 133
+        DB 117
+        DB 101
 //  128 {
 //  129   20,  /* tramsmit power level of the first entry */
 //  130   (uint8)(int8)10, /* transmit power level of the last entry */
@@ -495,7 +506,12 @@ macRadioDefsTxPwrBare:
 //  181   defined HAL_PA_LNA || defined HAL_PA_LNA_CC2590
 //  182 
 //  183 /* TX power table array */
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA16
 //  184 const uint8 CODE *const CODE macRadioDefsTxPwrTables[] =
+macRadioDefsTxPwrTables:
+        DW macRadioDefsTxPwrCC2591
 //  185 {
 //  186 #if defined MAC_RUNTIME_CC2591 || defined MAC_RUNTIME_CC2590 || \ 
 //  187   (!defined HAL_PA_LNA && !defined HAL_PA_LNA_CC2590)
@@ -512,7 +528,14 @@ macRadioDefsTxPwrBare:
 //  198 };
 //  199 
 //  200 /* RSSI offset adjustment value array */
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA16
 //  201 const int8 CODE macRadioDefsRssiAdj[] =
+macRadioDefsRssiAdj:
+        DATA8
+        DB -6
+        DB 6
 //  202 {
 //  203 #if defined MAC_RUNTIME_CC2591 || defined MAC_RUNTIME_CC2590 || \ 
 //  204   (!defined HAL_PA_LNA && !defined HAL_PA_LNA_CC2590)
@@ -534,7 +557,13 @@ macRadioDefsTxPwrBare:
 //  220 
 //  221 #if defined MAC_RUNTIME_CC2591 || defined MAC_RUNTIME_CC2590 || \ 
 //  222   defined HAL_PA_LNA || defined HAL_PA_LNA_CC2590
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
 //  223 uint8 macRadioDefsRefTableId = 0;
+macRadioDefsRefTableId:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
 //  224 #endif
 //  225 
 //  226 /* RF observable control register value to output PA signal */
@@ -570,7 +599,13 @@ MAC_SetRadioRegTable:
         CFI Function MAC_SetRadioRegTable
         CODE
 //  252 {
-        ; Saved register size: 0
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
         ; Auto size: 0
 //  253   /* Depending on compile flags, the parameters may not be used */
 //  254   (void) txPwrTblIdx;
@@ -587,16 +622,45 @@ MAC_SetRadioRegTable:
 //  265   defined HAL_PA_LNA || defined HAL_PA_LNA_CC2590
 //  266 
 //  267   if (rssiAdjIdx >= sizeof(macRadioDefsRssiAdj)/sizeof(macRadioDefsRssiAdj[0]))
+        MOV     A,R2
+        CLR     C
+        SUBB    A,#0x2
+        JC      ??MAC_SetRadioRegTable_0
 //  268   {
 //  269     rssiAdjIdx = 0;
+        MOV     R2,#0x0
 //  270   }
 //  271 
 //  272   macRadioDefsRefTableId = (txPwrTblIdx << 4) | rssiAdjIdx;
+??MAC_SetRadioRegTable_0:
+        MOV     A,R1
+        SWAP    A
+        ANL     A,#0xf0
+        ORL     A,R2
+        MOV     DPTR,#macRadioDefsRefTableId
+        CFI EndBlock cfiBlock0
+        REQUIRE ?Subroutine0
+        ; // Fall through to label ?Subroutine0
 //  273 
 //  274 #endif /* defined MAC_RUNTIME_CC2591 || defined MAC_RUNTIME_CC2590 || .. */
 //  275 }
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine0:
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI NoFunction
+        CFI CFA_SP SP+-5
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI DPH0 Frame(CFA_SP, 5)
+        MOVX    @DPTR,A
+        POP     DPH
+        CFI CFA_SP SP+-4
+        CFI DPH0 SameValue
+        POP     DPL
+        CFI CFA_SP SP+-3
+        CFI DPL0 SameValue
         LJMP    ?BRET
-        CFI EndBlock cfiBlock0
+        CFI EndBlock cfiBlock1
 //  276 
 //  277 
 //  278 /**************************************************************************************************
@@ -613,7 +677,7 @@ MAC_SetRadioRegTable:
         RSEG BANKED_CODE:CODE:NOROOT(0)
 //  288 MAC_INTERNAL_API void macRadioTurnOnPower(void)
 macRadioTurnOnPower:
-        CFI Block cfiBlock1 Using cfiCommon0
+        CFI Block cfiBlock2 Using cfiCommon0
         CFI Function macRadioTurnOnPower
         CODE
 //  289 {
@@ -655,32 +719,47 @@ macRadioTurnOnPower:
 //  302     /* (Re-)Configure PA and LNA control signals to RF frontend chips.
 //  303     * Note that The register values are not retained during sleep.
 //  304     */
-//  305 
-//  306     /* P1_1 -> PAEN */
+//  305 /**************¹¦ÂÊ¸Ä¶¯********************************************************************************************/
+//  306     /* P1_1 -> PAEN 
 //  307     RFC_OBS_CTRL0 = RFC_OBS_CTRL_PA_PD_INV;
-//  308     OBSSEL1       = OBSSEL_OBS_CTRL0;
-//  309 
-//  310     /* P1_4 -> EN (LNA control) */
-//  311     RFC_OBS_CTRL1 = RFC_OBS_CTRL_LNAMIX_PD_INV;
-//  312     OBSSEL4       = OBSSEL_OBS_CTRL1;
-//  313     
-//  314     /* For any RX, change CCA settings for CC2591 compression workaround.
-//  315      * This will override LNA control if CC2591_COMPRESSION_WORKAROUND 
-//  316      * flag is defined. 
-//  317      */
-//  318     COMPRESSION_WORKAROUND_ON();
-//  319   }
-//  320 #endif /* defined MAC_RUNTIME_CC2591 || ... || defined HAL_PA_LNA_CC2590 */
-//  321 
-//  322   if (macChipVersion <= REV_B)
+//  308     OBSSEL1       = OBSSEL_OBS_CTRL0; */
+//  309     /* P1_5 -> PAEN */
+//  310     RFC_OBS_CTRL0 = RFC_OBS_CTRL_PA_PD_INV;
+        MOV     DPTR,#0x61eb
+        MOV     A,#0x68
+        MOVX    @DPTR,A
+//  311     OBSSEL5       = OBSSEL_OBS_CTRL0; 
+        MOV     DPTR,#0x6248
+        MOV     A,#-0x5
+        MOVX    @DPTR,A
+//  312       
+//  313     /* P1_4 -> EN (LNA control) 
+//  314     RFC_OBS_CTRL1 = RFC_OBS_CTRL_LNAMIX_PD_INV;
+//  315     OBSSEL4       = OBSSEL_OBS_CTRL1;*/
+//  316     P1SEL &= ~0X10;
+        ANL     0xf4,#0xef
+//  317     P1DIR |= 0X10;
+        ORL     0xfe,#0x10
+//  318     P1_4=1;
+        SETB    0x90.4
+//  319     
+//  320     /* For any RX, change CCA settings for CC2591 compression workaround.
+//  321      * This will override LNA control if CC2591_COMPRESSION_WORKAROUND 
+//  322      * flag is defined. 
+//  323      */
+//  324     COMPRESSION_WORKAROUND_ON();
+//  325   }
+//  326 #endif /* defined MAC_RUNTIME_CC2591 || ... || defined HAL_PA_LNA_CC2590 */
+//  327 
+//  328   if (macChipVersion <= REV_B)
         MOV     DPTR,#macChipVersion
         MOVX    A,@DPTR
         CLR     C
         SUBB    A,#0x12
         JNC     ??macRadioTurnOnPower_0
-//  323   {
-//  324     /* radio initializations for disappearing RAM; PG1.0 and before only */
-//  325     MAC_RADIO_SET_PAN_ID(macPib.panId);
+//  329   {
+//  330     /* radio initializations for disappearing RAM; PG1.0 and before only */
+//  331     MAC_RADIO_SET_PAN_ID(macPib.panId);
         MOV     DPTR,#macPib + 29
         MOVX    A,@DPTR
         MOV     DPTR,#0x6172
@@ -689,7 +768,7 @@ macRadioTurnOnPower:
         MOVX    A,@DPTR
         MOV     DPTR,#0x6173
         MOVX    @DPTR,A
-//  326     MAC_RADIO_SET_SHORT_ADDR(macPib.shortAddress);
+//  332     MAC_RADIO_SET_SHORT_ADDR(macPib.shortAddress);
         MOV     DPTR,#macPib + 33
         MOVX    A,@DPTR
         MOV     DPTR,#0x6174
@@ -698,7 +777,7 @@ macRadioTurnOnPower:
         MOVX    A,@DPTR
         MOV     DPTR,#0x6175
         MOVX    @DPTR,A
-//  327     MAC_RADIO_SET_IEEE_ADDR(macPib.extendedAddress.addr.extAddr);
+//  333     MAC_RADIO_SET_IEEE_ADDR(macPib.extendedAddress.addr.extAddr);
         ; Setup parameters for call to function macMemWriteRam
         MOV     R1,#0x8
         MOV     R4,#(macPib + 49) & 0xff
@@ -706,57 +785,42 @@ macRadioTurnOnPower:
         MOV     R2,#0x6a
         MOV     R3,#0x61
         LCALL   ??macMemWriteRam?relay
-//  328   }
-//  329 
-//  330   /* Turn on frame filtering */
-//  331   MAC_RADIO_TURN_ON_RX_FRAME_FILTERING();
+//  334   }
+//  335 
+//  336   /* Turn on frame filtering */
+//  337   MAC_RADIO_TURN_ON_RX_FRAME_FILTERING();
 ??macRadioTurnOnPower_0:
         MOV     DPTR,#0x6180
         CLR     A
         MOVX    @DPTR,A
         MOVX    A,@DPTR
         ORL     A,#0x5
-        CFI EndBlock cfiBlock1
-        REQUIRE ?Subroutine0
-        ; // Fall through to label ?Subroutine0
-//  332 }
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
-?Subroutine0:
-        CFI Block cfiBlock2 Using cfiCommon0
-        CFI NoFunction
-        CFI CFA_SP SP+-5
-        CFI DPL0 Frame(CFA_SP, 4)
-        CFI DPH0 Frame(CFA_SP, 5)
-        MOVX    @DPTR,A
-        POP     DPH
-        CFI CFA_SP SP+-4
-        CFI DPH0 SameValue
-        POP     DPL
-        CFI CFA_SP SP+-3
-        CFI DPL0 SameValue
-        LJMP    ?BRET
+        SJMP    ?Subroutine0
         CFI EndBlock cfiBlock2
-//  333 
-//  334 
-//  335 /**************************************************************************************************
-//  336  * @fn          macRadioTurnOffPower
-//  337  *
-//  338  * @brief       Logic and sequence for powering down the radio.
-//  339  *
-//  340  * @param       none
-//  341  *
-//  342  * @return      none
-//  343  **************************************************************************************************
-//  344  */
+        REQUIRE P1SEL
+        REQUIRE P1DIR
+        REQUIRE _A_P1
+//  338 }
+//  339 
+//  340 
+//  341 /**************************************************************************************************
+//  342  * @fn          macRadioTurnOffPower
+//  343  *
+//  344  * @brief       Logic and sequence for powering down the radio.
+//  345  *
+//  346  * @param       none
+//  347  *
+//  348  * @return      none
+//  349  **************************************************************************************************
+//  350  */
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-//  345 MAC_INTERNAL_API void macRadioTurnOffPower(void)
+//  351 MAC_INTERNAL_API void macRadioTurnOffPower(void)
 macRadioTurnOffPower:
         CFI Block cfiBlock3 Using cfiCommon0
         CFI Function macRadioTurnOffPower
         CODE
-//  346 {
+//  352 {
         PUSH    DPL
         CFI DPL0 Frame(CFA_SP, 4)
         CFI CFA_SP SP+-4
@@ -765,14 +829,14 @@ macRadioTurnOffPower:
         CFI CFA_SP SP+-5
         ; Saved register size: 2
         ; Auto size: 0
-//  347   /* Disable RF error trap */
-//  348   MAC_MCU_RFERR_DISABLE_INTERRUPT();
+//  353   /* Disable RF error trap */
+//  354   MAC_MCU_RFERR_DISABLE_INTERRUPT();
         MOV     DPTR,#0x61a5
         MOVX    A,@DPTR
         CLR     0xE0 /* A   */.2
         SJMP    ?Subroutine0
         CFI EndBlock cfiBlock3
-//  349 }
+//  355 }
 
         RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
 ??MAC_SetRadioRegTable?relay:
@@ -793,48 +857,52 @@ macRadioTurnOffPower:
         DC24    macRadioTurnOffPower
 
         END
-//  350 
-//  351 
-//  352 /**************************************************************************************************
-//  353  *                                  Compile Time Integrity Checks
-//  354  **************************************************************************************************
-//  355  */
-//  356 #if (HAL_CPU_CLOCK_MHZ != 32)
-//  357 #error "ERROR: The only tested/supported clock speed is 32 MHz."
-//  358 #endif
-//  359 
-//  360 #if (MAC_RADIO_RECEIVER_SENSITIVITY_DBM > MAC_SPEC_MIN_RECEIVER_SENSITIVITY)
-//  361 #error "ERROR: Radio sensitivity does not meet specification."
-//  362 #endif
-//  363 
-//  364 #if defined (HAL_PA_LNA) && defined (HAL_PA_LNA_CC2590)
-//  365 #error "ERROR: HAL_PA_LNA and HAL_PA_LNA_CC2590 cannot be both defined."
-//  366 #endif
-//  367 
-//  368 #if defined (HAL_PA_LNA) && defined (MAC_RUNTIME_CC2591)
-//  369 #error "ERROR: HAL_PA_LNA and MAC_RUNTIME_CC2591 cannot be both defined."
-//  370 #endif
-//  371 
-//  372 #if defined (HAL_PA_LNA_CC2590) && defined (MAC_RUNTIME_CC2590)
-//  373 #error "ERROR: HAL_PA_LNA_CC2590 and MAC_RUNTIME_CC2590 cannot be both defined."
-//  374 #endif
-//  375 
-//  376 #if defined (CC2591_COMPRESSION_WORKAROUND) && !defined (HAL_PA_LNA)
-//  377 #error "ERROR: CC2591_COMPRESSION_WORKAROUND can only be defined when HAL_PA_LNA is defined."
-//  378 #endif
-//  379 
-//  380 #if defined (CC2591_COMPRESSION_WORKAROUND)
-//  381 #warning "WARNING: Contact TI customer support if your reference design is based on CC2530-CC2591EM rev 2.0 or prior."
-//  382 #endif
-//  383 
-//  384 /**************************************************************************************************
-//  385  */
+//  356 
+//  357 
+//  358 /**************************************************************************************************
+//  359  *                                  Compile Time Integrity Checks
+//  360  **************************************************************************************************
+//  361  */
+//  362 #if (HAL_CPU_CLOCK_MHZ != 32)
+//  363 #error "ERROR: The only tested/supported clock speed is 32 MHz."
+//  364 #endif
+//  365 
+//  366 #if (MAC_RADIO_RECEIVER_SENSITIVITY_DBM > MAC_SPEC_MIN_RECEIVER_SENSITIVITY)
+//  367 #error "ERROR: Radio sensitivity does not meet specification."
+//  368 #endif
+//  369 
+//  370 #if defined (HAL_PA_LNA) && defined (HAL_PA_LNA_CC2590)
+//  371 #error "ERROR: HAL_PA_LNA and HAL_PA_LNA_CC2590 cannot be both defined."
+//  372 #endif
+//  373 
+//  374 #if defined (HAL_PA_LNA) && defined (MAC_RUNTIME_CC2591)
+//  375 #error "ERROR: HAL_PA_LNA and MAC_RUNTIME_CC2591 cannot be both defined."
+//  376 #endif
+//  377 
+//  378 #if defined (HAL_PA_LNA_CC2590) && defined (MAC_RUNTIME_CC2590)
+//  379 #error "ERROR: HAL_PA_LNA_CC2590 and MAC_RUNTIME_CC2590 cannot be both defined."
+//  380 #endif
+//  381 
+//  382 #if defined (CC2591_COMPRESSION_WORKAROUND) && !defined (HAL_PA_LNA)
+//  383 #error "ERROR: CC2591_COMPRESSION_WORKAROUND can only be defined when HAL_PA_LNA is defined."
+//  384 #endif
+//  385 
+//  386 #if defined (CC2591_COMPRESSION_WORKAROUND)
+//  387 #warning "WARNING: Contact TI customer support if your reference design is based on CC2530-CC2591EM rev 2.0 or prior."
+//  388 #endif
+//  389 
+//  390 /**************************************************************************************************
+//  391  */
 // 
-// 96 bytes in segment BANKED_CODE
-// 18 bytes in segment BANK_RELAYS
-// 28 bytes in segment CODE_C
+// 135 bytes in segment BANKED_CODE
+//  18 bytes in segment BANK_RELAYS
+//  17 bytes in segment CODE_C
+//   3 bytes in segment SFR_AN
+//   1 byte  in segment XDATA_Z
 // 
-// 142 bytes of CODE memory
+// 170 bytes of CODE  memory
+//   0 bytes of DATA  memory (+ 3 bytes shared)
+//   1 byte  of XDATA memory
 //
 //Errors: none
 //Warnings: none

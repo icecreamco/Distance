@@ -1,6 +1,6 @@
 ###############################################################################
 #                                                                             #
-# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         04/Aug/2014  10:08:22 #
+# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         18/Oct/2016  22:30:33 #
 # Copyright 2004-2011 IAR Systems AB.                                         #
 #                                                                             #
 #    Core               =  plain                                              #
@@ -9,20 +9,20 @@
 #    Calling convention =  xdata reentrant                                    #
 #    Constant location  =  data_rom                                           #
 #    Dptr setup         =  1,16                                               #
-#    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects #
-#                          \zstack\Samples\SampleApp\Source\DHT11.c           #
-#    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Proj #
-#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\To #
-#                          ols\CC2530DB\f8wCoord.cfg" (-DCPU32MHZ             #
+#    Source file        =  C:\Users\icecreamco\Desktop\Distance\Coordinator\P #
+#                          rojects\zstack\Samples\SampleApp\Source\DHT11.c    #
+#    Command line       =  -f C:\Users\icecreamco\Desktop\Distance\Coordinato #
+#                          r\Projects\zstack\Samples\SampleApp\CC2530DB\..\.. #
+#                          \..\Tools\CC2530DB\f8wCoord.cfg (-DCPU32MHZ        #
 #                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRU #
 #                          E -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8       #
 #                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
-#                          -f "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Proj #
-#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\To #
-#                          ols\CC2530DB\f8wConfig.cfg" (-DZIGBEEPRO           #
+#                          -f C:\Users\icecreamco\Desktop\Distance\Coordinato #
+#                          r\Projects\zstack\Samples\SampleApp\CC2530DB\..\.. #
+#                          \..\Tools\CC2530DB\f8wConfig.cfg (-DZIGBEEPRO      #
 #                          -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR       #
 #                          -DDEFAULT_CHANLIST=0x00000800                      #
-#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DZDAPP_CONFIG_PAN_ID=0x1234                       #
 #                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
 #                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
 #                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
@@ -42,94 +42,95 @@
 #                          __code" -DGENERIC=__generic                        #
 #                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
 #                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
-#                          -DREJOIN_POLL_RATE=440 "C:\Texas                   #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\SampleApp\Source\DHT11.c" -D                #
-#                          xBUILD_ALL_DEVICES -D xHOLD_AUTO_START -D          #
-#                          xLCD_SUPPORTED -D xHAL_UART=FALSE -D ZIGBEEPRO -D  #
-#                          ZTOOL_P1 -lC "C:\Texas Instruments\ZStack-CC2530-2 #
-#                          .5.1a\Projects\zstack\Samples\SampleApp\CC2530DB\D #
-#                          emoEB\List\" -lA "C:\Texas                         #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\SampleApp\CC2530DB\DemoEB\List\"            #
-#                          --diag_suppress Pe001,Pa010 -o "C:\Texas           #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\SampleApp\CC2530DB\DemoEB\Obj\" -e          #
-#                          --no_code_motion --debug --core=plain --dptr=16,1  #
-#                          --data_model=large --code_model=banked             #
-#                          --calling_convention=xdata_reentrant               #
-#                          --place_constants=data_rom --nr_virtual_regs 16    #
-#                          -I "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Proj #
-#                          ects\zstack\Samples\SampleApp\CC2530DB\" -I        #
-#                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project #
-#                          s\zstack\Samples\SampleApp\CC2530DB\..\Source\"    #
-#                          -I "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Proj #
-#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\ZM #
-#                          ain\TI2530DB\" -I "C:\Texas                        #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\SampleApp\CC2530DB\..\..\..\..\..\Component #
-#                          s\hal\include\" -I "C:\Texas                       #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\SampleApp\CC2530DB\..\..\..\..\..\Component #
-#                          s\hal\target\CC2530EB\" -I "C:\Texas               #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\SampleApp\CC2530DB\..\..\..\..\..\Component #
-#                          s\mac\include\" -I "C:\Texas                       #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\SampleApp\CC2530DB\..\..\..\..\..\Component #
-#                          s\mac\high_level\" -I "C:\Texas                    #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\SampleApp\CC2530DB\..\..\..\..\..\Component #
-#                          s\mac\low_level\srf04\" -I "C:\Texas               #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\SampleApp\CC2530DB\..\..\..\..\..\Component #
-#                          s\mac\low_level\srf04\single_chip\" -I "C:\Texas   #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\SampleApp\CC2530DB\..\..\..\..\..\Component #
-#                          s\mt\" -I "C:\Texas Instruments\ZStack-CC2530-2.5. #
-#                          1a\Projects\zstack\Samples\SampleApp\CC2530DB\..\. #
-#                          .\..\..\..\Components\osal\include\" -I "C:\Texas  #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\SampleApp\CC2530DB\..\..\..\..\..\Component #
-#                          s\services\saddr\" -I "C:\Texas                    #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\SampleApp\CC2530DB\..\..\..\..\..\Component #
-#                          s\services\sdata\" -I "C:\Texas                    #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\SampleApp\CC2530DB\..\..\..\..\..\Component #
-#                          s\stack\af\" -I "C:\Texas                          #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\SampleApp\CC2530DB\..\..\..\..\..\Component #
-#                          s\stack\nwk\" -I "C:\Texas                         #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\SampleApp\CC2530DB\..\..\..\..\..\Component #
-#                          s\stack\sapi\" -I "C:\Texas                        #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\SampleApp\CC2530DB\..\..\..\..\..\Component #
-#                          s\stack\sec\" -I "C:\Texas                         #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\SampleApp\CC2530DB\..\..\..\..\..\Component #
-#                          s\stack\sys\" -I "C:\Texas                         #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\SampleApp\CC2530DB\..\..\..\..\..\Component #
-#                          s\stack\zdo\" -I "C:\Texas                         #
-#                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\S #
-#                          amples\SampleApp\CC2530DB\..\..\..\..\..\Component #
-#                          s\zmac\" -I "C:\Texas Instruments\ZStack-CC2530-2. #
-#                          5.1a\Projects\zstack\Samples\SampleApp\CC2530DB\.. #
-#                          \..\..\..\..\Components\zmac\f8w\" -Ohz            #
+#                          -DREJOIN_POLL_RATE=440 C:\Users\icecreamco\Desktop #
+#                          \Distance\Coordinator\Projects\zstack\Samples\Samp #
+#                          leApp\Source\DHT11.c -D BUILD_ALL_DEVICES -D       #
+#                          HOLD_AUTO_START -D LCD_SUPPORTED -D                #
+#                          HAL_UART=FALSE -lC C:\Users\icecreamco\Desktop\Dis #
+#                          tance\Coordinator\Projects\zstack\Samples\SampleAp #
+#                          p\CC2530DB\DemoEB\List\ -lA                        #
+#                          C:\Users\icecreamco\Desktop\Distance\Coordinator\P #
+#                          rojects\zstack\Samples\SampleApp\CC2530DB\DemoEB\L #
+#                          ist\ --diag_suppress Pe001,Pa010 -o                #
+#                          C:\Users\icecreamco\Desktop\Distance\Coordinator\P #
+#                          rojects\zstack\Samples\SampleApp\CC2530DB\DemoEB\O #
+#                          bj\ -e --no_code_motion --debug --core=plain       #
+#                          --dptr=16,1 --data_model=large                     #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I C:\Users\icecreamco\Deskto #
+#                          p\Distance\Coordinator\Projects\zstack\Samples\Sam #
+#                          pleApp\CC2530DB\ -I C:\Users\icecreamco\Desktop\Di #
+#                          stance\Coordinator\Projects\zstack\Samples\SampleA #
+#                          pp\CC2530DB\..\Source\ -I                          #
+#                          C:\Users\icecreamco\Desktop\Distance\Coordinator\P #
+#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
+#                          \ZMain\TI2530DB\ -I C:\Users\icecreamco\Desktop\Di #
+#                          stance\Coordinator\Projects\zstack\Samples\SampleA #
+#                          pp\CC2530DB\..\..\..\..\..\Components\hal\include\ #
+#                           -I C:\Users\icecreamco\Desktop\Distance\Coordinat #
+#                          or\Projects\zstack\Samples\SampleApp\CC2530DB\..\. #
+#                          .\..\..\..\Components\hal\target\CC2530EB\ -I      #
+#                          C:\Users\icecreamco\Desktop\Distance\Coordinator\P #
+#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\mac\include\ -I                  #
+#                          C:\Users\icecreamco\Desktop\Distance\Coordinator\P #
+#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\mac\high_level\ -I               #
+#                          C:\Users\icecreamco\Desktop\Distance\Coordinator\P #
+#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\mac\low_level\srf04\ -I          #
+#                          C:\Users\icecreamco\Desktop\Distance\Coordinator\P #
+#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\mac\low_level\srf04\single_chip\ #
+#                           -I C:\Users\icecreamco\Desktop\Distance\Coordinat #
+#                          or\Projects\zstack\Samples\SampleApp\CC2530DB\..\. #
+#                          .\..\..\..\Components\mt\ -I                       #
+#                          C:\Users\icecreamco\Desktop\Distance\Coordinator\P #
+#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\osal\include\ -I                 #
+#                          C:\Users\icecreamco\Desktop\Distance\Coordinator\P #
+#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\services\saddr\ -I               #
+#                          C:\Users\icecreamco\Desktop\Distance\Coordinator\P #
+#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\services\sdata\ -I               #
+#                          C:\Users\icecreamco\Desktop\Distance\Coordinator\P #
+#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\stack\af\ -I                     #
+#                          C:\Users\icecreamco\Desktop\Distance\Coordinator\P #
+#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\stack\nwk\ -I                    #
+#                          C:\Users\icecreamco\Desktop\Distance\Coordinator\P #
+#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\stack\sapi\ -I                   #
+#                          C:\Users\icecreamco\Desktop\Distance\Coordinator\P #
+#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\stack\sec\ -I                    #
+#                          C:\Users\icecreamco\Desktop\Distance\Coordinator\P #
+#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\stack\sys\ -I                    #
+#                          C:\Users\icecreamco\Desktop\Distance\Coordinator\P #
+#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\stack\zdo\ -I                    #
+#                          C:\Users\icecreamco\Desktop\Distance\Coordinator\P #
+#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\zmac\ -I                         #
+#                          C:\Users\icecreamco\Desktop\Distance\Coordinator\P #
+#                          rojects\zstack\Samples\SampleApp\CC2530DB\..\..\.. #
+#                          \..\..\Components\zmac\f8w\ -Ohz                   #
 #                          --require_prototypes                               #
-#    List file          =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects #
-#                          \zstack\Samples\SampleApp\CC2530DB\DemoEB\List\DHT #
-#                          11.lst                                             #
-#    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects #
-#                          \zstack\Samples\SampleApp\CC2530DB\DemoEB\Obj\DHT1 #
-#                          1.r51                                              #
+#    List file          =  C:\Users\icecreamco\Desktop\Distance\Coordinator\P #
+#                          rojects\zstack\Samples\SampleApp\CC2530DB\DemoEB\L #
+#                          ist\DHT11.lst                                      #
+#    Object file        =  C:\Users\icecreamco\Desktop\Distance\Coordinator\P #
+#                          rojects\zstack\Samples\SampleApp\CC2530DB\DemoEB\O #
+#                          bj\DHT11.r51                                       #
 #                                                                             #
 #                                                                             #
 ###############################################################################
 
-C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\SampleApp\Source\DHT11.c
+C:\Users\icecreamco\Desktop\Distance\Coordinator\Projects\zstack\Samples\SampleApp\Source\DHT11.c
       1          #include <ioCC2530.h>
 
    \                                 In  segment SFR_AN, at 0x80
@@ -168,29 +169,7 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\SampleApp\Sour
    \   000001                REQUIRE __INIT_XDATA_Z
 
    \                                 In  segment XDATA_Z, align 1, keep-with-next
-     17          uchar shidu_shi,shidu_ge,wendu_shi,wendu_ge=4;
-   \                     shidu_shi:
-   \   000000                DS 1
-   \   000001                REQUIRE __INIT_XDATA_Z
-
-   \                                 In  segment XDATA_Z, align 1, keep-with-next
-   \                     shidu_ge:
-   \   000000                DS 1
-   \   000001                REQUIRE __INIT_XDATA_Z
-
-   \                                 In  segment XDATA_Z, align 1, keep-with-next
-   \                     wendu_shi:
-   \   000000                DS 1
-   \   000001                REQUIRE __INIT_XDATA_Z
-
-   \                                 In  segment XDATA_I, align 1, keep-with-next
-   \                     wendu_ge:
-   \   000000                DS 1
-   \   000001                REQUIRE `?<Initializer for wendu_ge>`
-   \   000001                REQUIRE __INIT_XDATA_I
-
-   \                                 In  segment XDATA_Z, align 1, keep-with-next
-     18          uchar ucharT_data_H,ucharT_data_L,ucharRH_data_H,ucharRH_data_L,ucharcheckdata;
+     17          uchar ucharT_data_H,ucharT_data_L,ucharRH_data_H,ucharRH_data_L,ucharcheckdata;
    \                     ucharT_data_H:
    \   000000                DS 1
    \   000001                REQUIRE __INIT_XDATA_Z
@@ -216,7 +195,7 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\SampleApp\Sour
    \   000001                REQUIRE __INIT_XDATA_Z
 
    \                                 In  segment XDATA_Z, align 1, keep-with-next
-     19          uchar ucharT_data_H_temp,ucharT_data_L_temp,ucharRH_data_H_temp,ucharRH_data_L_temp,ucharcheckdata_temp;
+     18          uchar ucharT_data_H_temp,ucharT_data_L_temp,ucharRH_data_H_temp,ucharRH_data_L_temp,ucharcheckdata_temp;
    \                     ucharT_data_H_temp:
    \   000000                DS 1
    \   000001                REQUIRE __INIT_XDATA_Z
@@ -242,13 +221,13 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\SampleApp\Sour
    \   000001                REQUIRE __INIT_XDATA_Z
 
    \                                 In  segment XDATA_Z, align 1, keep-with-next
-     20          uchar ucharcomdata;
+     19          uchar ucharcomdata;
    \                     ucharcomdata:
    \   000000                DS 1
    \   000001                REQUIRE __INIT_XDATA_Z
 
    \                                 In  segment XDATA_Z, align 1, keep-with-next
-     21          uint  T_temp,RH_temp;
+     20          uint  T_temp,RH_temp;
    \                     T_temp:
    \   000000                DS 2
    \   000002                REQUIRE __INIT_XDATA_Z
@@ -257,6 +236,12 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\SampleApp\Sour
    \                     RH_temp:
    \   000000                DS 2
    \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     21          uchar value_wenshi[8];
+   \                     value_wenshi:
+   \   000000                DS 8
+   \   000008                REQUIRE __INIT_XDATA_Z
      22          
      23          //延时函数
 
@@ -615,98 +600,129 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\SampleApp\Sour
    \   0000BC   90....       MOV     DPTR,#ucharcheckdata
    \   0000BF   F0           MOVX    @DPTR,A
     100                  }
-    101                  T_temp = ucharT_data_H*256+ucharT_data_L;
+    101                  if(ucharT_data_H & 0x80)
    \                     ??DHT11_5:
    \   0000C0   90....       MOV     DPTR,#ucharT_data_H
    \   0000C3   E0           MOVX    A,@DPTR
-   \   0000C4   F9           MOV     R1,A
-   \   0000C5   90....       MOV     DPTR,#ucharT_data_L
-   \   0000C8   E0           MOVX    A,@DPTR
-   \   0000C9   90....       MOV     DPTR,#T_temp
-   \   0000CC   F0           MOVX    @DPTR,A
-   \   0000CD   A3           INC     DPTR
-   \   0000CE   E9           MOV     A,R1
-   \   0000CF   F0           MOVX    @DPTR,A
-    102                  RH_temp = ucharRH_data_H*256+ucharRH_data_L;
-   \   0000D0   90....       MOV     DPTR,#ucharRH_data_H
-   \   0000D3   E0           MOVX    A,@DPTR
-   \   0000D4   F9           MOV     R1,A
-   \   0000D5   90....       MOV     DPTR,#ucharRH_data_L
-   \   0000D8   E0           MOVX    A,@DPTR
-   \   0000D9   90....       MOV     DPTR,#RH_temp
-   \   0000DC   F0           MOVX    @DPTR,A
-   \   0000DD   A3           INC     DPTR
-   \   0000DE   E9           MOV     A,R1
-   \   0000DF   12....       LCALL   ?Subroutine2 & 0xFFFF
-    103                  wendu_shi=T_temp/100; 
+   \   0000C4   A2E7         MOV     C,0xE0 /* A   */.7
+   \   0000C6   90....       MOV     DPTR,#value_wenshi
+   \   0000C9   5004         JNC     ??DHT11_6
+    102                      value_wenshi[0] = '-';
+   \   0000CB   742D         MOV     A,#0x2d
+   \   0000CD   8002         SJMP    ??DHT11_7
+    103                  else
+    104                      value_wenshi[0] = ' ';
+   \                     ??DHT11_6:
+   \   0000CF   7420         MOV     A,#0x20
+   \                     ??DHT11_7:
+   \   0000D1   F0           MOVX    @DPTR,A
+    105                  ucharT_data_H &= ~0x80;
+   \   0000D2   90....       MOV     DPTR,#ucharT_data_H
+   \   0000D5   E0           MOVX    A,@DPTR
+   \   0000D6   C2E7         CLR     0xE0 /* A   */.7
+   \   0000D8   F0           MOVX    @DPTR,A
+    106                  T_temp = ucharT_data_H*256+ucharT_data_L;
+   \   0000D9   F9           MOV     R1,A
+   \   0000DA   90....       MOV     DPTR,#ucharT_data_L
+   \   0000DD   E0           MOVX    A,@DPTR
+   \   0000DE   90....       MOV     DPTR,#T_temp
+   \   0000E1   F0           MOVX    @DPTR,A
+   \   0000E2   A3           INC     DPTR
+   \   0000E3   E9           MOV     A,R1
+   \   0000E4   F0           MOVX    @DPTR,A
+    107                  RH_temp = ucharRH_data_H*256+ucharRH_data_L;
+   \   0000E5   90....       MOV     DPTR,#ucharRH_data_H
+   \   0000E8   E0           MOVX    A,@DPTR
+   \   0000E9   F9           MOV     R1,A
+   \   0000EA   90....       MOV     DPTR,#ucharRH_data_L
+   \   0000ED   E0           MOVX    A,@DPTR
+   \   0000EE   90....       MOV     DPTR,#RH_temp
+   \   0000F1   F0           MOVX    @DPTR,A
+   \   0000F2   A3           INC     DPTR
+   \   0000F3   E9           MOV     A,R1
+   \   0000F4   12....       LCALL   ?Subroutine2 & 0xFFFF
+    108                  
+    109                  value_wenshi[1]=T_temp/100+0x30; 
    \                     ??CrossCallReturnLabel_11:
-   \   0000E2   12....       LCALL   ?US_DIV_MOD
-   \   0000E5   E8           MOV     A,R0
-   \   0000E6   90....       MOV     DPTR,#wendu_shi
-   \   0000E9   12....       LCALL   ?Subroutine2 & 0xFFFF
-    104                  wendu_ge=T_temp%100/10;
-   \                     ??CrossCallReturnLabel_12:
-   \   0000EC   12....       LCALL   ?US_DIV_MOD
-   \   0000EF   EA           MOV     A,R2
-   \   0000F0   F8           MOV     R0,A
-   \   0000F1   EB           MOV     A,R3
-   \   0000F2   F9           MOV     R1,A
-   \   0000F3   7A0A         MOV     R2,#0xa
-   \   0000F5   7B00         MOV     R3,#0x0
    \   0000F7   12....       LCALL   ?US_DIV_MOD
    \   0000FA   E8           MOV     A,R0
-   \   0000FB   90....       MOV     DPTR,#wendu_ge
-   \   0000FE   F0           MOVX    @DPTR,A
-    105                  
-    106                  shidu_shi=RH_temp/100;  
-   \   0000FF   90....       MOV     DPTR,#RH_temp
-   \   000102   12....       LCALL   ??Subroutine8_0 & 0xFFFF
+   \   0000FB   2430         ADD     A,#0x30
+   \   0000FD   90....       MOV     DPTR,#value_wenshi + 1
+   \   000100   12....       LCALL   ?Subroutine2 & 0xFFFF
+    110                  value_wenshi[2]=T_temp%100/10+0x30;
+   \                     ??CrossCallReturnLabel_12:
+   \   000103   12....       LCALL   ?US_DIV_MOD
+   \   000106   EA           MOV     A,R2
+   \   000107   F8           MOV     R0,A
+   \   000108   EB           MOV     A,R3
+   \   000109   F9           MOV     R1,A
+   \   00010A   7A0A         MOV     R2,#0xa
+   \   00010C   7B00         MOV     R3,#0x0
+   \   00010E   12....       LCALL   ?US_DIV_MOD
+   \   000111   E8           MOV     A,R0
+   \   000112   2430         ADD     A,#0x30
+   \   000114   90....       MOV     DPTR,#value_wenshi + 2
+   \   000117   F0           MOVX    @DPTR,A
+    111                  value_wenshi[3]='.';
+   \   000118   A3           INC     DPTR
+   \   000119   742E         MOV     A,#0x2e
+   \   00011B   F0           MOVX    @DPTR,A
+    112                  value_wenshi[4]=T_temp%10+0x30;      
+   \   00011C   90....       MOV     DPTR,#T_temp
+   \   00011F   E0           MOVX    A,@DPTR
+   \   000120   F8           MOV     R0,A
+   \   000121   A3           INC     DPTR
+   \   000122   E0           MOVX    A,@DPTR
+   \   000123   F9           MOV     R1,A
+   \   000124   7A0A         MOV     R2,#0xa
+   \   000126   7B00         MOV     R3,#0x0
+   \   000128   12....       LCALL   ?US_DIV_MOD
+   \   00012B   EA           MOV     A,R2
+   \   00012C   2430         ADD     A,#0x30
+   \   00012E   90....       MOV     DPTR,#value_wenshi + 4
+   \   000131   F0           MOVX    @DPTR,A
+    113                  value_wenshi[5]=RH_temp/100+0x30;  
+   \   000132   90....       MOV     DPTR,#RH_temp
+   \   000135   12....       LCALL   ??Subroutine8_0 & 0xFFFF
    \                     ??CrossCallReturnLabel_13:
-   \   000105   12....       LCALL   ?US_DIV_MOD
-   \   000108   E8           MOV     A,R0
-   \   000109   90....       MOV     DPTR,#shidu_shi
-   \   00010C   F0           MOVX    @DPTR,A
-    107                  shidu_ge=RH_temp%100/10;       
-   \   00010D   90....       MOV     DPTR,#RH_temp
-   \   000110   12....       LCALL   ??Subroutine8_0 & 0xFFFF
-    108              } 
+   \   000138   12....       LCALL   ?US_DIV_MOD
+   \   00013B   E8           MOV     A,R0
+   \   00013C   2430         ADD     A,#0x30
+   \   00013E   90....       MOV     DPTR,#value_wenshi + 5
+   \   000141   F0           MOVX    @DPTR,A
+    114                  value_wenshi[6]=RH_temp%100/10+0x30;       
+   \   000142   90....       MOV     DPTR,#RH_temp
+   \   000145   12....       LCALL   ??Subroutine8_0 & 0xFFFF
+    115              } 
    \                     ??CrossCallReturnLabel_14:
-   \   000113   12....       LCALL   ?US_DIV_MOD
-   \   000116   EA           MOV     A,R2
-   \   000117   F8           MOV     R0,A
-   \   000118   EB           MOV     A,R3
-   \   000119   F9           MOV     R1,A
-   \   00011A   7A0A         MOV     R2,#0xa
-   \   00011C   7B00         MOV     R3,#0x0
-   \   00011E   12....       LCALL   ?US_DIV_MOD
-   \   000121   E8           MOV     A,R0
-   \   000122   800D         SJMP    ??DHT11_6
-    109              else //没用成功读取，返回0
-    110              {
-    111                  wendu_shi=0; 
+   \   000148   12....       LCALL   ?US_DIV_MOD
+   \   00014B   EA           MOV     A,R2
+   \   00014C   F8           MOV     R0,A
+   \   00014D   EB           MOV     A,R3
+   \   00014E   F9           MOV     R1,A
+   \   00014F   7A0A         MOV     R2,#0xa
+   \   000151   7B00         MOV     R3,#0x0
+   \   000153   12....       LCALL   ?US_DIV_MOD
+   \   000156   E8           MOV     A,R0
+   \   000157   2430         ADD     A,#0x30
+   \   000159   90....       MOV     DPTR,#value_wenshi + 6
+   \   00015C   F0           MOVX    @DPTR,A
+    116              else //没用成功读取，返回0
+    117              {
+    118          //        wendu_shi=0; 
+    119          //        wendu_ge=0;
+    120          //        
+    121          //        shidu_shi=0; 
+    122          //        shidu_ge=0;  
+    123              } 
+    124              
+    125              P0DIR |= 0x80; //IO口需要重新配置 
    \                     ??DHT11_0:
-   \   000124   90....       MOV     DPTR,#wendu_shi
-   \   000127   E4           CLR     A
-   \   000128   F0           MOVX    @DPTR,A
-    112                  wendu_ge=0;
-   \   000129   90....       MOV     DPTR,#wendu_ge
-   \   00012C   F0           MOVX    @DPTR,A
-    113                  
-    114                  shidu_shi=0; 
-   \   00012D   90....       MOV     DPTR,#shidu_shi
-   \   000130   F0           MOVX    @DPTR,A
-    115                  shidu_ge=0;  
-   \                     ??DHT11_6:
-   \   000131   90....       MOV     DPTR,#shidu_ge
-   \   000134   F0           MOVX    @DPTR,A
-    116              } 
-    117              
-    118              P0DIR |= 0x80; //IO口需要重新配置 
-   \   000135   43FD80       ORL     0xfd,#0x80
-    119          }
-   \   000138   02....       LJMP    ??Subroutine6_0 & 0xFFFF
-   \   00013B                REQUIRE _A_P0
-   \   00013B                REQUIRE P0DIR
+   \   00015D   43FD80       ORL     0xfd,#0x80
+    126          }
+   \   000160   02....       LJMP    ??Subroutine6_0 & 0xFFFF
+   \   000163                REQUIRE _A_P0
+   \   000163                REQUIRE P0DIR
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
    \                     ?Subroutine3:
@@ -742,10 +758,6 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\SampleApp\Sour
    \   000005   7A64         MOV     R2,#0x64
    \   000007   7B00         MOV     R3,#0x0
    \   000009   22           RET
-
-   \                                 In  segment XDATA_ID, align 1, keep-with-next
-   \                     `?<Initializer for wendu_ge>`:
-   \   000000   04           DB 4
 
    \                                 In  segment BANK_RELAYS, align 1
    \                     ??Delay_us?relay:
@@ -801,61 +813,55 @@ C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\SampleApp\Sour
 
    Segment part sizes:
 
-     Function/Label              Bytes
-     --------------              -----
-     _A_P0                          1
-     P0DIR                          1
-     ucharFLAG                      1
-     uchartemp                      1
-     shidu_shi                      1
-     shidu_ge                       1
-     wendu_shi                      1
-     wendu_ge                       1
-     ucharT_data_H                  1
-     ucharT_data_L                  1
-     ucharRH_data_H                 1
-     ucharRH_data_L                 1
-     ucharcheckdata                 1
-     ucharT_data_H_temp             1
-     ucharT_data_L_temp             1
-     ucharRH_data_H_temp            1
-     ucharRH_data_L_temp            1
-     ucharcheckdata_temp            1
-     ucharcomdata                   1
-     T_temp                         2
-     RH_temp                        2
-     Delay_us                       6
-     ?Subroutine0                   5
-     ??Subroutine6_0                7
-     Delay_10us                     8
-     Delay_ms                      43
-     ?Subroutine1                   5
-     COM                           85
-     ?Subroutine5                   8
-     ?Subroutine4                  22
-     DHT11                        315
-     ?Subroutine3                   1
-     ??Subroutine7_0                8
-     ?Subroutine2                   4
-     ??Subroutine8_0               10
-     ?<Initializer for wendu_ge>    1
-     ??Delay_us?relay               6
-     ??Delay_10us?relay             6
-     ??Delay_ms?relay               6
-     ??COM?relay                    6
-     ??DHT11?relay                  6
+     Function/Label      Bytes
+     --------------      -----
+     _A_P0                  1
+     P0DIR                  1
+     ucharFLAG              1
+     uchartemp              1
+     ucharT_data_H          1
+     ucharT_data_L          1
+     ucharRH_data_H         1
+     ucharRH_data_L         1
+     ucharcheckdata         1
+     ucharT_data_H_temp     1
+     ucharT_data_L_temp     1
+     ucharRH_data_H_temp    1
+     ucharRH_data_L_temp    1
+     ucharcheckdata_temp    1
+     ucharcomdata           1
+     T_temp                 2
+     RH_temp                2
+     value_wenshi           8
+     Delay_us               6
+     ?Subroutine0           5
+     ??Subroutine6_0        7
+     Delay_10us             8
+     Delay_ms              43
+     ?Subroutine1           5
+     COM                   85
+     ?Subroutine5           8
+     ?Subroutine4          22
+     DHT11                355
+     ?Subroutine3           1
+     ??Subroutine7_0        8
+     ?Subroutine2           4
+     ??Subroutine8_0       10
+     ??Delay_us?relay       6
+     ??Delay_10us?relay     6
+     ??Delay_ms?relay       6
+     ??COM?relay            6
+     ??DHT11?relay          6
 
  
- 527 bytes in segment BANKED_CODE
+ 567 bytes in segment BANKED_CODE
   30 bytes in segment BANK_RELAYS
    2 bytes in segment SFR_AN
-   1 byte  in segment XDATA_I
-   1 byte  in segment XDATA_ID
-  20 bytes in segment XDATA_Z
+  25 bytes in segment XDATA_Z
  
- 558 bytes of CODE  memory
+ 597 bytes of CODE  memory
    0 bytes of DATA  memory (+ 2 bytes shared)
-  21 bytes of XDATA memory
+  25 bytes of XDATA memory
 
 Errors: none
 Warnings: none

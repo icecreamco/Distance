@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                            /
-// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        04/Aug/2014  09:59:02 /
+// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        18/Oct/2016  22:30:34 /
 // Copyright 2004-2011 IAR Systems AB.                                        /
 //                                                                            /
 //    Core               =  plain                                             /
@@ -9,20 +9,20 @@
 //    Calling convention =  xdata reentrant                                   /
 //    Constant location  =  data_rom                                          /
 //    Dptr setup         =  1,16                                              /
-//    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Compone /
-//                          nts\mac\low_level\srf04\mac_radio.c               /
-//    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Pro /
-//                          jects\zstack\Samples\SampleApp\CC2530DB\..\..\..\ /
-//                          Tools\CC2530DB\f8wCoord.cfg" (-DCPU32MHZ          /
+//    Source file        =  C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Components\mac\low_level\srf04\mac_radio.c        /
+//    Command line       =  -f C:\Users\icecreamco\Desktop\Distance\Coordinat /
+//                          or\Projects\zstack\Samples\SampleApp\CC2530DB\..\ /
+//                          ..\..\Tools\CC2530DB\f8wCoord.cfg (-DCPU32MHZ     /
 //                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TR /
 //                          UE -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8     /
 //                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)   /
-//                          -f "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Pro /
-//                          jects\zstack\Samples\SampleApp\CC2530DB\..\..\..\ /
-//                          Tools\CC2530DB\f8wConfig.cfg" (-DZIGBEEPRO        /
+//                          -f C:\Users\icecreamco\Desktop\Distance\Coordinat /
+//                          or\Projects\zstack\Samples\SampleApp\CC2530DB\..\ /
+//                          ..\..\Tools\CC2530DB\f8wConfig.cfg (-DZIGBEEPRO   /
 //                          -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR      /
 //                          -DDEFAULT_CHANLIST=0x00000800                     /
-//                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                      /
+//                          -DZDAPP_CONFIG_PAN_ID=0x1234                      /
 //                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
 //                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
 //                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
@@ -42,88 +42,88 @@
 //                          __code" -DGENERIC=__generic                       /
 //                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
 //                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
-//                          -DREJOIN_POLL_RATE=440 "C:\Texas                  /
-//                          Instruments\ZStack-CC2530-2.5.1a\Components\mac\l /
-//                          ow_level\srf04\mac_radio.c" -D                    /
-//                          xBUILD_ALL_DEVICES -D xHOLD_AUTO_START -D         /
-//                          xLCD_SUPPORTED -D xHAL_UART=FALSE -D ZIGBEEPRO    /
-//                          -D ZTOOL_P1 -lC "C:\Texas                         /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\DemoEB\List\" -lA      /
-//                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projec /
-//                          ts\zstack\Samples\SampleApp\CC2530DB\DemoEB\List\ /
-//                          " --diag_suppress Pe001,Pa010 -o "C:\Texas        /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\DemoEB\Obj\" -e        /
-//                          --no_code_motion --debug --core=plain             /
+//                          -DREJOIN_POLL_RATE=440 C:\Users\icecreamco\Deskto /
+//                          p\Distance\Coordinator\Components\mac\low_level\s /
+//                          rf04\mac_radio.c -D BUILD_ALL_DEVICES -D          /
+//                          HOLD_AUTO_START -D LCD_SUPPORTED -D               /
+//                          HAL_UART=FALSE -lC C:\Users\icecreamco\Desktop\Di /
+//                          stance\Coordinator\Projects\zstack\Samples\Sample /
+//                          App\CC2530DB\DemoEB\List\ -lA                     /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\DemoEB /
+//                          \List\ --diag_suppress Pe001,Pa010 -o             /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\DemoEB /
+//                          \Obj\ -e --no_code_motion --debug --core=plain    /
 //                          --dptr=16,1 --data_model=large                    /
 //                          --code_model=banked --calling_convention=xdata_re /
 //                          entrant --place_constants=data_rom                /
-//                          --nr_virtual_regs 16 -I "C:\Texas                 /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\" -I "C:\Texas         /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\Source\" -I         /
-//                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projec /
-//                          ts\zstack\Samples\SampleApp\CC2530DB\..\..\..\ZMa /
-//                          in\TI2530DB\" -I "C:\Texas                        /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\hal\include\" -I "C:\Texas                    /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\hal\target\CC2530EB\" -I "C:\Texas            /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\mac\include\" -I "C:\Texas                    /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\mac\high_level\" -I "C:\Texas                 /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\mac\low_level\srf04\" -I "C:\Texas            /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\mac\low_level\srf04\single_chip\" -I          /
-//                          "C:\Texas Instruments\ZStack-CC2530-2.5.1a\Projec /
-//                          ts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ /
-//                          ..\Components\mt\" -I "C:\Texas                   /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\osal\include\" -I "C:\Texas                   /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\services\saddr\" -I "C:\Texas                 /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\services\sdata\" -I "C:\Texas                 /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\stack\af\" -I "C:\Texas                       /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\stack\nwk\" -I "C:\Texas                      /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\stack\sapi\" -I "C:\Texas                     /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\stack\sec\" -I "C:\Texas                      /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\stack\sys\" -I "C:\Texas                      /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\stack\zdo\" -I "C:\Texas                      /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\zmac\" -I "C:\Texas                           /
-//                          Instruments\ZStack-CC2530-2.5.1a\Projects\zstack\ /
-//                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone /
-//                          nts\zmac\f8w\" -Ohz --require_prototypes          /
-//    List file          =  C:\Texas Instruments\ZStack-CC2530-2.5.1a\Project /
-//                          s\zstack\Samples\SampleApp\CC2530DB\DemoEB\List\m /
-//                          ac_radio.s51                                      /
+//                          --nr_virtual_regs 16 -I                           /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\ -I    /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\Sou /
+//                          rce\ -I C:\Users\icecreamco\Desktop\Distance\Coor /
+//                          dinator\Projects\zstack\Samples\SampleApp\CC2530D /
+//                          B\..\..\..\ZMain\TI2530DB\ -I                     /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\hal\include\ -I               /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\hal\target\CC2530EB\ -I       /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\mac\include\ -I               /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\mac\high_level\ -I            /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\mac\low_level\srf04\ -I       /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\mac\low_level\srf04\single_ch /
+//                          ip\ -I C:\Users\icecreamco\Desktop\Distance\Coord /
+//                          inator\Projects\zstack\Samples\SampleApp\CC2530DB /
+//                          \..\..\..\..\..\Components\mt\ -I                 /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\osal\include\ -I              /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\services\saddr\ -I            /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\services\sdata\ -I            /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\stack\af\ -I                  /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\stack\nwk\ -I                 /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\stack\sapi\ -I                /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\stack\sec\ -I                 /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\stack\sys\ -I                 /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\stack\zdo\ -I                 /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\zmac\ -I                      /
+//                          C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\ /
+//                          ..\..\..\Components\zmac\f8w\ -Ohz                /
+//                          --require_prototypes                              /
+//    List file          =  C:\Users\icecreamco\Desktop\Distance\Coordinator\ /
+//                          Projects\zstack\Samples\SampleApp\CC2530DB\DemoEB /
+//                          \List\mac_radio.s51                               /
 //                                                                            /
 //                                                                            /
 ///////////////////////////////////////////////////////////////////////////////
@@ -477,13 +477,15 @@ macRadioUpdateTxPower SYMBOL "macRadioUpdateTxPower"
         EXTERN ??macRxOnRequest?relay
         FUNCTION ??macRxOnRequest?relay,00H
         EXTERN macPib
-        EXTERN macRadioDefsTxPwrBare
+        EXTERN macRadioDefsRefTableId
+        EXTERN macRadioDefsRssiAdj
+        EXTERN macRadioDefsTxPwrTables
         EXTERN macRxFilter
         EXTERN macRxOutgoingAckFlag
         EXTERN macSleepState
         EXTERN macTxActive
 
-// C:\Texas Instruments\ZStack-CC2530-2.5.1a\Components\mac\low_level\srf04\mac_radio.c
+// C:\Users\icecreamco\Desktop\Distance\Coordinator\Components\mac\low_level\srf04\mac_radio.c
 //    1 /**************************************************************************************************
 //    2   Filename:       mac_radio.c
 //    3   Revised:        $Date: 2007-09-11 10:58:41 -0700 (Tue, 11 Sep 2007) $
@@ -508,7 +510,7 @@ macRadioUpdateTxPower SYMBOL "macRadioUpdateTxPower"
 //   22   its documentation for any purpose.
 //   23 
 //   24   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
-//   25   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   25   PROVIDED “AS IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
 //   26   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
 //   27   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
 //   28   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
@@ -1037,13 +1039,21 @@ macRadioSetTxPower:
 //  243   const uint8 CODE *pTable = macRadioDefsTxPwrTables[macRadioDefsRefTableId >> 4];
 //  244 #elif defined HAL_PA_LNA || defined HAL_PA_LNA_CC2590
 //  245   const uint8 CODE *pTable = macRadioDefsTxPwrTables[0];
+        MOV     DPTR,#macRadioDefsTxPwrTables
+        CLR     A
+        MOVC    A,@A+DPTR
+        MOV     R0,A
+        MOV     A,#0x1
+        MOVC    A,@A+DPTR
+        MOV     R1,A
 //  246 #else
 //  247   const uint8 CODE *pTable = macRadioDefsTxPwrBare;
 //  248 #endif
 //  249 
 //  250   /* if the selected dBm is out of range, use the closest available */
 //  251   if ((int8)txPower > (int8)pTable[MAC_RADIO_DEFS_TBL_TXPWR_FIRST_ENTRY])
-        MOV     DPTR,#macRadioDefsTxPwrBare
+        MOV     DPL,R0
+        MOV     DPH,R1
         CLR     A
         MOVC    A,@A+DPTR
         CLR     C
@@ -1060,10 +1070,10 @@ macRadioSetTxPower:
         INC     DPTR
         CLR     A
         MOVC    A,@A+DPTR
-        MOV     R0,A
+        MOV     R2,A
         MOV     A,R6
         CLR     C
-        SUBB    A,R0
+        SUBB    A,R2
         MOV     C,0xD0 /* PSW */.2
         XRL     A,PSW
         RLC     A
@@ -1071,6 +1081,9 @@ macRadioSetTxPower:
 //  257   {
 //  258     /* smaller than the lowest power level -- out of table range */
 //  259     txPower = pTable[MAC_RADIO_DEFS_TBL_TXPWR_LAST_ENTRY];
+        MOV     DPL,R0
+        MOV     DPH,R1
+        INC     DPTR
 ??macRadioSetTxPower_0:
         CLR     A
         MOVC    A,@A+DPTR
@@ -1087,7 +1100,7 @@ macRadioSetTxPower:
 //  269   HAL_ENTER_CRITICAL_SECTION(s);
 ??macRadioSetTxPower_1:
         MOV     A,0xa8
-        MOV     R2,A
+        MOV     R4,A
         CLR     0xa8.7
 //  270   /* When calculating index to the power register value table,
 //  271    * either txPower (of uint8 type) has to be explicitly type-casted to int8
@@ -1099,17 +1112,18 @@ macRadioSetTxPower:
 //  277     uint8 index = pTable[MAC_RADIO_DEFS_TBL_TXPWR_FIRST_ENTRY] - txPower
 //  278       + MAC_RADIO_DEFS_TBL_TXPWR_ENTRIES;
 //  279     reqTxPower = pTable[index];
-        MOV     DPTR,#macRadioDefsTxPwrBare
+        MOV     DPL,R0
+        MOV     DPH,R1
         CLR     A
         MOVC    A,@A+DPTR
         CLR     C
         SUBB    A,R6
         ADD     A,#0x2
-        MOV     R0,A
-        MOV     A,#macRadioDefsTxPwrBare & 0xff
-        ADD     A,R0
+        MOV     R2,A
+        MOV     A,R0
+        ADD     A,R2
         MOV     DPL,A
-        MOV     A,#(macRadioDefsTxPwrBare >> 8) & 0xff
+        MOV     A,R1
         ADDC    A,#0x0
         MOV     DPH,A
         CLR     A
@@ -1118,7 +1132,7 @@ macRadioSetTxPower:
         MOVX    @DPTR,A
 //  280   }
 //  281   HAL_EXIT_CRITICAL_SECTION(s);
-        MOV     A,R2
+        MOV     A,R4
         MOV     C,0xE0 /* A   */.7
         MOV     0xa8.7,C
 //  282 
@@ -1802,6 +1816,10 @@ macRadioEnergyDetectStop:
 //  517   uint8 energyDetectMeasurement;
 //  518 
 //  519   rssiDbm = MAC_RADIO_RECORD_MAX_RSSI_STOP() + MAC_RADIO_RSSI_OFFSET;
+        ; Setup parameters for call to function macMcuRecordMaxRssiStop
+        LCALL   ??macMcuRecordMaxRssiStop?relay
+        MOV     A,R1
+        MOV     R2,A
 //  520   MAC_RADIO_RSSI_LNA_OFFSET(rssiDbm);
 //  521   energyDetectMeasurement = radioComputeED(rssiDbm);
 //  522 
@@ -1810,9 +1828,19 @@ macRadioEnergyDetectStop:
 //  525 
 //  526   return(energyDetectMeasurement);
         ; Setup parameters for call to function radioComputeED
-        ; Setup parameters for call to function macMcuRecordMaxRssiStop
-        LCALL   ??macMcuRecordMaxRssiStop?relay
-        MOV     A,R1
+        MOV     DPTR,#macRadioDefsRefTableId
+        MOVX    A,@DPTR
+        ANL     A,#0xf
+        MOV     R0,A
+        MOV     A,#macRadioDefsRssiAdj & 0xff
+        ADD     A,R0
+        MOV     DPL,A
+        MOV     A,#(macRadioDefsRssiAdj >> 8) & 0xff
+        ADDC    A,#0x0
+        MOV     DPH,A
+        CLR     A
+        MOVC    A,@A+DPTR
+        ADD     A,R2
         ADD     A,#-0x49
         MOV     R1,A
         LCALL   ??radioComputeED?relay
@@ -2083,12 +2111,12 @@ macRadioComputeLQI:
 //  593 /**************************************************************************************************
 //  594 */
 // 
-// 605 bytes in segment BANKED_CODE
+// 642 bytes in segment BANKED_CODE
 // 102 bytes in segment BANK_RELAYS
 //   1 byte  in segment SFR_AN
 //   4 bytes in segment XDATA_Z
 // 
-// 707 bytes of CODE  memory
+// 744 bytes of CODE  memory
 //   0 bytes of DATA  memory (+ 1 byte shared)
 //   4 bytes of XDATA memory
 //
