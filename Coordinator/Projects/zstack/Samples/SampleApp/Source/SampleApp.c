@@ -155,7 +155,7 @@ uint16 shortAddr = 0;
  */
 void SampleApp_HandleKeys( uint8 shift, uint8 keys );
 void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pckt );
-void SampleApp_SendPeriodicMessage(uint8 ADR,uint8 fieldsel);
+void SampleApp_SendPeriodicMessage(void);
 void SampleApp_SendFlashMessage( uint16 flashTime );
 void SampleApp_Send_P2P_Message(uint8* dat, uint8 n, uint16 shortaddr);
 
@@ -325,11 +325,8 @@ uint16 SampleApp_ProcessEvent( uint8 task_id, uint16 events )
   {
            
     // Send the periodic message
-      if(shortAddr != 0) {
-        P1_1 = 0;
-        uint8 data[]="ABCD";
-        SampleApp_Send_P2P_Message(data, 4, shortAddr);
-      }
+    P1_1 = 0;
+    SampleApp_SendPeriodicMessage();
 
     // Setup to send message again in normal period (+ a little jitter)
     osal_start_timerEx( SampleApp_TaskID, SAMPLEAPP_SEND_PERIODIC_MSG_EVT,
@@ -457,7 +454,7 @@ void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
  *
  * @return  none
  */
-void SampleApp_SendPeriodicMessage(uint8 ADR,uint8 fieldsel)
+void SampleApp_SendPeriodicMessage()
 {
   uint8 data[]="ABCD";
 

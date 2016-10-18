@@ -302,7 +302,6 @@ uint16 SampleApp_ProcessEvent( uint8 task_id, uint16 events )
             osal_start_timerEx( SampleApp_TaskID,
                               SAMPLEAPP_SEND_PERIODIC_MSG_EVT,
                               SAMPLEAPP_SEND_PERIODIC_MSG_TIMEOUT );
-            SampleApp_Send_P2P_Message(0);
           }
           else
           {
@@ -415,10 +414,6 @@ void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
   switch ( pkt->clusterId )
   {
     case SAMPLEAPP_PERIODIC_CLUSTERID:
-
-      break;
-      
-    case SAMPLEAPP_P2P_CLUSTERID:
       osal_memcpy(data,pkt->cmd.Data,pkt->cmd.DataLength);
       
       if ( data[0]=='A' && data[1]=='B' && data[2]=='C' && data[3]=='D' )
@@ -431,18 +426,20 @@ void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
         p0_4 -> 5
         p0_5 -> 6
         p0_6 -> 7
-        p1_7 -> 8
+        p2_0 -> 8
         */
+        P0DIR |= 0X73;
+        P1DIR |= 0X0c;
+        P2DIR |= 0x01;
         quality = pkt->LinkQuality;
         uint8 message[2];
         message[0] = TXPOWER;
         message[1] = quality;
         HalUARTWrite(0, message, 2);
-        quality=quality/32+1;
-          P0DIR|=0X73;
-          P1DIR|=0X8C;
+        quality = quality/32 + 1;
           P0 &= 0x8c;
-          P1 &= 0x73;
+          P1 &= 0xf2;
+          P2 &= 0xfe;
           switch(quality)
           {
             case 1:            
@@ -475,15 +472,18 @@ void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
               break;
             case 8:
               P0 |= 0x73;
-              P1 |= 0x8c;
+              P1 |= 0x0c;
+              P2 |= 0x01;
               break;
             default:
-              P0 |= 0x00;
-              P1 |= 0x00;
               break;
           }
           SampleApp_Send_P2P_Message(pkt->LinkQuality);
       }
+      break;
+      
+    case SAMPLEAPP_P2P_CLUSTERID:
+      
       break;  
       
     case SAMPLEAPP_FLASH_CLUSTERID:
